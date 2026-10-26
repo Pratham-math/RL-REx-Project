@@ -1,0 +1,14 @@
+{
+  "verified_identical": {
+    "summary.json": "0aa72a48a17a474f55f6a2db0363e99fd4d4826f30efa0316ed5adfb3832b303",
+    "summary.csv": "a3341966c44eb82859193d7137172b647098c87048242f5c53029dad77d24889",
+    "diagnostics.json": "af8ab72b6aaf3ea3df111b672830525edcc5410c04cb0661ed2c2e0948314adb",
+    "auc.json": "8e411e1b3ce2d14ea8dc28876cd24bba0491ca15d8ea8d219f390739baa95f2c",
+    "auc.csv": "94998e6215ea27b7bea2e5b02dd2386077c72f88436c9b12e364e73febb49b3f",
+    "success_vs_calls.svg": "1c3acc72d2bc3fb46348dd41eac796ce8408456e2e768c2ca2cc9463fe655da2",
+    "success_vs_tokens.svg": "7bd3882bb02f662ddbc9dbd9f0193c2318b68da5169b248e5972946ef6989d60"
+  },
+  "environment": "separate frozen .venv_verify",
+  "new_model_calls": 0,
+  "new_candidate_executions": 0
+}

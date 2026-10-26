@@ -1,0 +1,29 @@
+import sys
+
+def can_reach_all_junctions(n, m, horiz_dirs, vert_dirs):
+    # Check if horizontal directions are consistent
+    for i in range(n - 1):
+        if horiz_dirs[i] != horiz_dirs[i + 1]:
+            return False
+    
+    # Check if vertical directions are consistent
+    for j in range(m - 1):
+        if vert_dirs[j] != vert_dirs[j + 1]:
+            return False
+    
+    return True
+
+def main():
+    # Read input from standard input
+    n, m = map(int, input().split())
+    horiz_dirs = input().strip()
+    vert_dirs = input().strip()
+    
+    # Check if the directions allow reaching all junctions
+    if can_reach_all_junctions(n, m, horiz_dirs, vert_dirs):
+        print("YES")
+    else:
+        print("NO")
+
+if __name__ == "__main__":
+    main()

@@ -1,0 +1,8 @@
+0.40.11: Pulling from ollama/ollama
+44bf7b97f255: Pulling fs layer
+f2b4ef06ff01: Pulling fs layer
+9fa16ea64911: Pulling fs layer
+b73722f1c651: Pulling fs layer
+9fa16ea64911: Download complete
+f2b4ef06ff01: Download complete
+f2b4ef06ff01: Pull complete

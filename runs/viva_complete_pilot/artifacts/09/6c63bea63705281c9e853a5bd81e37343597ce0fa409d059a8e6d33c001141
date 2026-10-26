@@ -1,0 +1,21 @@
+import sys
+
+# Read input from standard input
+input = sys.stdin.read
+data = input().splitlines()
+
+# Extract the numbers from the input
+a = data[0]
+b = data[1]
+
+# Remove leading zeroes
+a = a.lstrip('0')
+b = b.lstrip('0')
+
+# Compare the numbers and print the result
+if a < b:
+    print("<")
+elif a > b:
+    print(">")
+else:
+    print("=")

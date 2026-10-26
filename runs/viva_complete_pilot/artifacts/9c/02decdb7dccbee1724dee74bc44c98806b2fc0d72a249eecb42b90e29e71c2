@@ -1,0 +1,12 @@
+def can_reach_insect(n, k, board):
+    grasshopper_index = board.index('G')
+    target_index = board.index('T')
+    
+    if abs(grasshopper_index - target_index) % k == 0:
+        return "YES"
+    else:
+        return "NO"
+
+n, k = map(int, input().split())
+board = input().strip()
+print(can_reach_insect(n, k, board))

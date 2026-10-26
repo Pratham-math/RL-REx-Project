@@ -1,0 +1,100 @@
+schema_version: 1
+experiment:
+  schema_version: 1
+  name: local_live_smoke
+  track: controlled_extension
+  methods:
+  - rex
+  seeds:
+  - 0
+  primary_comparison: rex_progress_cost_vs_rex
+  primary_metric: integration_only
+data:
+  schema_version: 1
+  raw_train: data/raw/APPS/train
+  raw_test: data/raw/APPS/test
+  dev_count: 1
+  evaluation_count: 1
+  difficulty:
+  - interview
+  split_seed: 2026
+  min_repair_tests: 3
+  min_hidden_tests: 5
+  max_repair_tests: 10
+  max_hidden_tests: 50
+  io_mode: stdio
+  require_audit: true
+  repair_file: data/smoke/dev_repair.jsonl
+  manifest: data/smoke/manifest.json
+  source_url: https://github.com/hendrycks/apps
+  source_revision: null
+  license: null
+  audit_only_references: data/audit_private/references.jsonl
+  manual_audit: data/manual_audit.json
+model:
+  schema_version: 1
+  backend: ollama
+  endpoint: http://localhost:11434
+  name: qwen2.5-coder:7b
+  digest: null
+  temperature: 1.0
+  max_output_tokens: 2048
+  context_tokens: 16384
+  request_timeout_seconds: 900.0
+  mock_script: tests/fixtures/model.json
+policy:
+  schema_version: 1
+  C: 20.0
+  eta: 0.5
+  gamma: 0.5
+  greedy_root_score: 0.5
+  bfs_branching: 2
+  fixed_width: 4
+  arm_identity: generation
+  terminal_rule: first_full_repair_pass
+  candidate_tie_rule: earliest_created
+  terminal_update: upstream
+judge:
+  schema_version: 1
+  memory_mib: 256
+  cpus: 1.0
+  pids_limit: 32
+  tmp_mib: 16
+  cpu_seconds: 2
+  program_wall_seconds: 5.0
+  startup_seconds: 30.0
+  stdout_bytes: 65536
+  stderr_bytes: 16384
+  backend: docker
+  image: rexbench-runner:local
+  image_digest: null
+  evaluation_cache: false
+  mock_script: tests/fixtures/judge.json
+budgets:
+  schema_version: 1
+  call_checkpoints:
+  - 1
+  - 2
+  token_checkpoints: []
+  token_mode: completed_generation_checkpoints
+  coverage_extension_call_ceiling: 2
+  max_dispatched_calls: 2
+  max_external_spend_usd: 0.0
+  campaign_wall_hours: 0.5
+execution:
+  schema_version: 1
+  workers: 1
+  model_concurrency: 1
+  resume: true
+  require_exact_usage_for_cost_report: true
+report:
+  schema_version: 1
+  bootstrap_samples: 10000
+  bootstrap_seed: 2026
+  require_complete_matrix: true
+  emit_formats:
+  - csv
+  - json
+  - png
+  - svg
+  - html

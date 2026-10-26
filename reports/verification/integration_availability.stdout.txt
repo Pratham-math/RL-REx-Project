@@ -1,0 +1,8 @@
+ssssssssssssss                                                           [100%]
+=========================== short test summary info ===========================
+SKIPPED [10] tests\integration\test_docker.py:21: Real Linux runner unavailable: Error while fetching server API version: (2, 'CreateFile', 'The system cannot find the file specified.')
+SKIPPED [1] tests\integration\test_docker.py:37: Real Linux runner unavailable: Error while fetching server API version: (2, 'CreateFile', 'The system cannot find the file specified.')
+SKIPPED [1] tests\integration\test_docker.py:43: Real Linux runner unavailable: Error while fetching server API version: (2, 'CreateFile', 'The system cannot find the file specified.')
+SKIPPED [1] tests\integration\test_docker.py:66: Real Linux runner unavailable: Error while fetching server API version: (2, 'CreateFile', 'The system cannot find the file specified.')
+SKIPPED [1] tests\live\test_ollama.py:21: Configured local model unavailable: <urlopen error [WinError 10061] No connection could be made because the target machine actively refused it>
+14 skipped, 77 deselected in 6.83s

@@ -1,0 +1,36 @@
+def is_reachable(n, m, horizontal, vertical):
+    # Check horizontal directions
+    for i in range(n):
+        if horizontal[i] == '<' and any(horizontal[j] == '>' for j in range(i + 1, n)):
+            return "NO"
+        if horizontal[i] == '>' and any(horizontal[j] == '<' for j in range(i + 1, n)):
+            return "NO"
+    
+    # Check vertical directions
+    for j in range(m):
+        if vertical[j] == '^' and any(vertical[k] == 'v' for k in range(j + 1, m)):
+            return "NO"
+        if vertical[j] == 'v' and any(vertical[k] == '^' for k in range(j + 1, m)):
+            return "NO"
+    
+    # Check if all junctions are reachable
+    # Start from the top-left corner (0,0)
+    if horizontal[0] == '<' and vertical[0] == '^':
+        if any(horizontal[i] == '>' for i in range(1, n)) and any(vertical[j] == 'v' for j in range(1, m)):
+            return "YES"
+    if horizontal[0] == '<' and vertical[0] == 'v':
+        if any(horizontal[i] == '>' for i in range(1, n)):
+            return "YES"
+    if horizontal[0] == '>' and vertical[0] == '^':
+        if any(vertical[j] == 'v' for j in range(1, m)):
+            return "YES"
+    
+    return "NO"
+
+# Read input
+n, m = map(int, input().split())
+horizontal = input().strip()
+vertical = input().strip()
+
+# Output the result
+print(is_reachable(n, m, horizontal, vertical))

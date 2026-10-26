@@ -1,0 +1,4 @@
+synthetic,method,normalized_call_auc,ci_low,ci_high,delta_vs_rex,delta_ci_low,delta_ci_high,n_tasks,call_grid
+False,resample,0.025,0.0,0.075,-0.525,-0.875,-0.175,5,1..8
+False,rex,0.55,0.2,0.875,0.0,0.0,0.0,5,1..8
+False,rex_progress_cost,0.55,0.2,0.875,0.0,0.0,0.0,5,1..8

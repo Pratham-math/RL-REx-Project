@@ -1,0 +1,14 @@
+# Import the required module
+import sys
+
+# Read input from standard input
+a = sys.stdin.readline().strip()
+b = sys.stdin.readline().strip()
+
+# Compare the two numbers and print the result
+if a < b:
+    print("<")
+elif a > b:
+    print(">")
+else:
+    print("=")

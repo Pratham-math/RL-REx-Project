@@ -1,0 +1,23 @@
+def max_abs_difference(n, k, tabs):
+    max_diff = 0
+    for b in range(n):
+        closed = set()
+        remaining_test = 0
+        remaining_social = 0
+        for i in range(n):
+            c = b + i * k
+            if 1 <= c <= n and c not in closed:
+                closed.add(c)
+                if tabs[c-1] == 1:
+                    remaining_test += 1
+                else:
+                    remaining_social += 1
+        max_diff = max(max_diff, abs(remaining_test - remaining_social))
+    return max_diff
+
+# Read input
+n, k = map(int, input().split())
+tabs = list(map(int, input().split()))
+
+# Output the result
+print(max_abs_difference(n, k, tabs))

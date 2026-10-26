@@ -1,0 +1,14 @@
+{
+  "install_command": "UV_PROJECT_ENVIRONMENT=.venv_verify uv sync --frozen --extra dev",
+  "interpreter": "Python 3.11.13",
+  "environment": "separately created .venv_verify; frozen lock installed successfully",
+  "regeneration_command": ".venv_verify/Scripts/python.exe -m rexbench report --experiment runs/synthetic --out reports/regenerated",
+  "regeneration_exit_code": 0,
+  "matching_metric_hashes": {
+    "summary.json": "71e5d0b0c38da5812f6b1666d5f7e6e72473c8287e9d71e478202c57073b054b",
+    "summary.csv": "75556f68f3b88faed6fa07bed60f7d8ef1aca54883ba48fe9635b1573101b7b9",
+    "diagnostics.json": "c6f51cd1eeea062c8eb2b01b2250838da80a434b3cc5ef779b80203032affdf6"
+  },
+  "model_requests_during_report": 0,
+  "candidate_executions_during_report": 0
+}

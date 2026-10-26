@@ -1,0 +1,17 @@
+def can_reach_target(n, k, line):
+    # Find the positions of the grasshopper and the target
+    grasshopper_pos = line.index('G')
+    target_pos = line.index('T')
+    
+    # Check if the distance between the grasshopper and the target is a multiple of k
+    if abs(grasshopper_pos - target_pos) % k == 0:
+        return "YES"
+    else:
+        return "NO"
+
+# Read input from standard input
+n, k = map(int, input().split())
+line = input().strip()
+
+# Output the result
+print(can_reach_target(n, k, line))

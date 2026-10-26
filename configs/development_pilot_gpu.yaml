@@ -1,0 +1,109 @@
+schema_version: 1
+experiment:
+  schema_version: 1
+  name: apps_development_pilot_gpu_vulkan
+  track: controlled_extension
+  methods:
+  - resample
+  - rex
+  - rex_progress_cost
+  seeds:
+  - 0
+  primary_comparison: rex_progress_cost_vs_rex
+  primary_metric: development_only
+data:
+  schema_version: 1
+  raw_train: data/raw_development_test_mirror/test
+  raw_test: data/unavailable_final
+  development_source_partition: test
+  exclude_task_ids: []
+  dev_count: 5
+  evaluation_count: 0
+  difficulty:
+  - interview
+  split_seed: 2026
+  min_repair_tests: 3
+  min_hidden_tests: 5
+  max_repair_tests: 10
+  repair_target_tests: 3
+  max_hidden_tests: 5
+  io_mode: stdio
+  require_audit: true
+  repair_file: data/development_pilot/dev_repair.jsonl
+  manifest: data/development_pilot/manifest.json
+  source_url: https://datasets-server.huggingface.co/rows?dataset=codeparrot%2Fapps&config=all&split=test&offset=100&length=100
+  source_revision: rows-sha256:b931a2ea3ee0e5d574d9c08f230ab7b2266978a2dd24acef85162ec2179c6644;repo:21e74ddf8de1a21436da12e3e653065c5213e9d1
+  license: MIT per codeparrot/apps dataset card; retain original problem-source attribution
+  audit_only_references: data/audit_private/references.jsonl
+  manual_audit: docs/development_manual_audit.json
+model:
+  schema_version: 1
+  backend: ollama
+  endpoint: http://127.0.0.1:11435
+  name: qwen2.5-coder:7b
+  digest: dae161e27b0e90dd1856c8bb3209201fd6736d8eb66298e75ed87571486f4364
+  temperature: 1.0
+  max_output_tokens: 2048
+  context_tokens: 16384
+  request_timeout_seconds: 900.0
+  mock_script: tests/fixtures/model.json
+policy:
+  schema_version: 1
+  C: 20.0
+  eta: 0.5
+  gamma: 0.5
+  greedy_root_score: 0.5
+  bfs_branching: 2
+  fixed_width: 4
+  arm_identity: generation
+  terminal_rule: first_full_repair_pass
+  candidate_tie_rule: earliest_created
+  terminal_update: upstream
+judge:
+  schema_version: 1
+  memory_mib: 256
+  cpus: 1.0
+  pids_limit: 32
+  tmp_mib: 16
+  cpu_seconds: 2
+  program_wall_seconds: 5.0
+  startup_seconds: 30.0
+  stdout_bytes: 65536
+  stderr_bytes: 16384
+  backend: docker
+  image: rexbench-runner:local
+  image_digest: sha256:6dbe7afd2271969b05df886951cb28e8a88b6e1aef6ce918fa8626c32ede7856
+  evaluation_cache: false
+  mock_script: tests/fixtures/judge.json
+budgets:
+  schema_version: 1
+  call_checkpoints:
+  - 1
+  - 2
+  - 4
+  - 8
+  token_checkpoints:
+  - 1024
+  - 2048
+  token_mode: completed_generation_checkpoints
+  coverage_extension_call_ceiling: 16
+  max_dispatched_calls: 102
+  max_external_spend_usd: 0.0
+  campaign_wall_hours: 0.5941103475
+execution:
+  schema_version: 1
+  workers: 1
+  model_concurrency: 1
+  resume: true
+  require_exact_usage_for_cost_report: true
+report:
+  schema_version: 1
+  bootstrap_samples: 10000
+  bootstrap_seed: 2026
+  require_complete_matrix: true
+  emit_formats:
+  - csv
+  - json
+  - png
+  - svg
+  - html

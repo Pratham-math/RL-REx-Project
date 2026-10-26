@@ -1,0 +1,120 @@
+{
+  "image_id": "sha256:6dbe7afd2271969b05df886951cb28e8a88b6e1aef6ce918fa8626c32ede7856",
+  "image_inspect": {
+    "Id": "sha256:6dbe7afd2271969b05df886951cb28e8a88b6e1aef6ce918fa8626c32ede7856",
+    "RepoTags": [
+      "rexbench-runner:local"
+    ],
+    "RepoDigests": [
+      "rexbench-runner@sha256:6dbe7afd2271969b05df886951cb28e8a88b6e1aef6ce918fa8626c32ede7856"
+    ],
+    "Comment": "buildkit.dockerfile.v0",
+    "Created": "2026-10-25T14:26:57.303928331Z",
+    "Config": {
+      "User": "65534:65534",
+      "Env": [
+        "PATH=/usr/local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
+        "LANG=C.UTF-8",
+        "GPG_KEY=A035C8C19219BA821ECEA86B64E628F8D684696D",
+        "PYTHON_VERSION=3.11.17",
+        "PYTHON_SHA256=bfb74ad39efae27cda510f134ab408e00f9992c56851cfc0b1cdb5646da11599",
+        "PYTHONHASHSEED=0",
+        "LC_ALL=C.UTF-8",
+        "TZ=UTC",
+        "PYTHONDONTWRITEBYTECODE=1"
+      ],
+      "Entrypoint": [
+        "python",
+        "-I",
+        "-c",
+        "import time; time.sleep(86400)"
+      ],
+      "WorkingDir": "/tmp"
+    },
+    "Architecture": "amd64",
+    "Os": "linux",
+    "Size": 45601097,
+    "RootFS": {
+      "Type": "layers",
+      "Layers": [
+        "sha256:a70f6272827f64e1427d048ced77491aab5d64ab95725e56920802ff391197d7",
+        "sha256:535a5d38abecfac4fa49da33fa942b53c53c463bd0d39a860967e46eb03faafe",
+        "sha256:6972161a9a77e7c1afb997daac15abc54f5b70c7b40b814601f53e038d8c398c",
+        "sha256:d86e9bd004831a6069b9a02e5caac80b73526315f52719079b4017b099956ed2",
+        "sha256:23cf1147ddde2e7092cc7b8eeec09d55d0b6dc2f6949f0d59a075c4dc073887e",
+        "sha256:5f70bf18a086007016e948b04aed3b82103a36bea41755b6cddfaf10ace3c6ef"
+      ]
+    },
+    "Metadata": {
+      "LastTagTime": "2026-10-25T14:26:58.038728435Z"
+    },
+    "Descriptor": {
+      "mediaType": "application/vnd.oci.image.index.v1+json",
+      "digest": "sha256:6dbe7afd2271969b05df886951cb28e8a88b6e1aef6ce918fa8626c32ede7856",
+      "size": 856
+    },
+    "Identity": {
+      "Build": [
+        {
+          "Ref": "vhw1anige9oo6uj08e0yy1d5l",
+          "CreatedAt": "2026-10-25T14:26:58.173387276Z"
+        }
+      ]
+    }
+  },
+  "runtime": {
+    "Platform": {
+      "Name": "Docker Desktop 4.64.0 (221278)"
+    },
+    "Version": "29.2.1",
+    "ApiVersion": "1.53",
+    "MinAPIVersion": "1.44",
+    "Os": "linux",
+    "Arch": "amd64",
+    "Components": [
+      {
+        "Name": "Engine",
+        "Version": "29.2.1",
+        "Details": {
+          "ApiVersion": "1.53",
+          "Arch": "amd64",
+          "BuildTime": "2026-02-02T17:17:24.000000000+00:00",
+          "Experimental": "false",
+          "GitCommit": "6bc6209",
+          "GoVersion": "go1.25.6",
+          "KernelVersion": "6.6.87.2-microsoft-standard-WSL2",
+          "MinAPIVersion": "1.44",
+          "Os": "linux"
+        }
+      },
+      {
+        "Name": "containerd",
+        "Version": "v2.2.1",
+        "Details": {
+          "GitCommit": "dea7da592f5d1d2b7755e3a161be07f43fad8f75"
+        }
+      },
+      {
+        "Name": "runc",
+        "Version": "1.3.4",
+        "Details": {
+          "GitCommit": "v1.3.4-0-gd6d73eb8"
+        }
+      },
+      {
+        "Name": "docker-init",
+        "Version": "0.19.0",
+        "Details": {
+          "GitCommit": "de40ad0"
+        }
+      }
+    ],
+    "GitCommit": "6bc6209",
+    "GoVersion": "go1.25.6",
+    "KernelVersion": "6.6.87.2-microsoft-standard-WSL2",
+    "BuildTime": "2026-02-02T17:17:24.000000000+00:00"
+  },
+  "base_manifest_digest": "sha256:b7a9e5f6a93d6d4a31f129bbd4bdee69efccb6ded0fb230d78aafaf37af98377",
+  "build_command": "docker build -t rexbench-runner:local -f docker/Dockerfile .",
+  "real_container_tests": "reports/verification/docker.xml"
+}

@@ -1,0 +1,25 @@
+from sys import stdin, stdout
+
+def is_reachable(n, m, horizontal, vertical):
+    # Check if all horizontal streets are in the same direction
+    if all(h == horizontal[0] for h in horizontal):
+        # Check if all vertical streets are in the same direction
+        if all(v == vertical[0] for v in vertical):
+            return True
+    return False
+
+def main():
+    # Read input
+    n, m = map(int, stdin.readline().split())
+    horizontal = stdin.readline().strip()
+    vertical = stdin.readline().strip()
+    
+    # Determine if the pattern is reachable
+    if is_reachable(n, m, horizontal, vertical):
+        stdout.write("YES\n")
+    else:
+        stdout.write("NO\n")
+
+# Execute the main function
+if __name__ == "__main__":
+    main()

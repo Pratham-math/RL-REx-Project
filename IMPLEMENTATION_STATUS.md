@@ -1,0 +1,19 @@
+# Implementation status
+
+Updated2026-10-26. Implementation is distinct from a completed study. Status vocabulary: not_started, implemented, verified_offline, verified_live, blocked. Real data/container and local-model smoke verification are recorded. The approved development pilot is running; the final study is pending.
+
+| Milestone | Status | Evidence | Remaining gate/blocker |
+| --- | --- | --- | --- |
+| M0 audit/setup | verified_offline | docs/source_records.json; reference/starter; pyproject.toml; uv.lock | Original11 offline tests passed. No original Docker/model evidence. |
+| M1 contracts/data | verified_live | data/development_pilot/manifest.json; data/development_pilot/audit.json; reports/development_audit_summary.json; docs/development_selection.json | Five development tasks pass92 real reference-test executions. Mirror revision limitations/source-role departure disclosed. Final dataset remains pending. |
+| M2 isolated judge | verified_live | reports/verification/docker.xml; reports/runner_image.json; tests/integration/test_docker.py | 15 real Linux container fixtures pass on Docker Desktop/WSL2. This is bounded fixture evidence, not perfect hostile isolation. |
+| M3 backend/parser | verified_live | reports/doctor_ready.json; reports/live_usage_contract.json; reports/verification/live_model_installed.xml; runs/development_smoke | qwen2.5-coder:7b digest dae161e27b0e, Q4_K_M, CPU-only. Repeated logical prompt counts and real parsed/judged generation verified. Exact tokenizer/strict cap and bitwise seed guarantees remain unsupported. |
+| M4 selectors | verified_offline | tests/unit/test_policies.py; reports/parity.json | Six upstream fake-domain trace checks pass; controlled departures disclosed. |
+| M5 orchestration | verified_offline | tests/integration/test_recovery.py; tests/integration/test_reconcile.py; reports/verification/docker_followup.xml | Crash recovery, proven-response reconciliation and append-only events verified. Real container cleanup passes; real-model cancellation pending. |
+| M6 hidden evaluator | verified_offline | tests/integration/test_pipeline.py; sealed synthetic example | Hash/matrix gates and search invariance tested; no real hidden benchmark. |
+| M7 analysis/replay | verified_offline | tests/unit/test_metrics.py; reports/synthetic_followup | Paired AUC intervals, labeled exports and inert SVG trees verified. Actual-model trace pending model weights. |
+| M8 live pilot | implemented | runs/development_smoke; reports/development_smoke; reports/verification/live_resume_noop.json; reports/live_stage_status.json | Real two-call smoke, sealed evaluation/report/replay and completed-resume no-op pass. Five-task/three-method pilot is running under the one-hour/120-dispatch limits. Full matrix and token coverage are not yet established. |
+| M9 final study | blocked | reports/main_plan.json; docs/preregistered_protocol.md | No actual final IDs/live pilot/frozen real setup/resources or study matrix. Main not launched. |
+| M10 handoff | verified_offline | README.md; docs/continuation_followup.md; reports/verification/fresh_environment_followup.json; dist/rexbench_followup.zip | Separate frozen environment regenerates identical metric data and SVG figures. Hash-inventoried follow-up bundle preserves the original delivery. Fresh-machine real-model smoke awaits prerequisites. |
+
+Current verification:90 passing offline tests,15 passing real Docker fixtures, one now-passing live-model test and previously clean lint/type checks. All11 preserved starter tests passed previously with the recorded environment. Updated synthetic CLI evidence is separate from the92 real reference-test executions. Real local inference is now recorded separately from synthetic fixtures. No paid API use, fabricated model gains or final-study results are present.

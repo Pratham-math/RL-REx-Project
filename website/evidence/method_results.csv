@@ -1,0 +1,4 @@
+method,hidden_solved,tasks,hidden_success_rate,repair_full_pass_tasks,calls,actual_tokens,tokens_per_hidden_success,call_auc
+resample,1,5,0.2,1,40,25819,25819.0,0.025
+rex,4,5,0.8,2,34,27247,6811.75,0.55
+rex_progress_cost,4,5,0.8,2,34,27247,6811.75,0.55

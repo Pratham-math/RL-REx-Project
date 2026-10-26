@@ -1,0 +1,10 @@
+{
+  "archive_sha256": "1758b8d5f4c78c4a5c8ebdabe9040cf8d340007133133418cb48fdfbf737b040",
+  "paper_sha256": "f03a19857b9fca9e4aea8bfe6353f34eefe9a4c48b3c3b298624a8282df57d02",
+  "upstream_commit": "371e879da5b1fff0d32a695ad37dcac50f74721b",
+  "starter_tests": {
+    "command": "python -m unittest test_project -v",
+    "passed": 11,
+    "scope": "offline including simulated pipeline; no Docker/live evidence"
+  }
+}

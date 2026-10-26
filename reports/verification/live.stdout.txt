@@ -1,0 +1,4 @@
+s                                                                        [100%]
+=========================== short test summary info ===========================
+SKIPPED [1] tests\live\test_ollama.py:21: Configured local model unavailable: <urlopen error [WinError 10061] No connection could be made because the target machine actively refused it>
+1 skipped, 94 deselected in 6.29s

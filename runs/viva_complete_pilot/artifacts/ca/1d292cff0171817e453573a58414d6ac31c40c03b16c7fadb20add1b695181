@@ -1,0 +1,41 @@
+import sys
+
+def main():
+    n, m = map(int, input().split())
+    horizontal_directions = input().strip()
+    vertical_directions = input().strip()
+
+    # Check if the horizontal streets allow traffic to move in both directions
+    for direction in horizontal_directions:
+        if direction == '=':
+            continue
+        if direction == '<' and '<' in horizontal_directions:
+            continue
+        if direction == '>' and '>' in horizontal_directions:
+            continue
+        if direction == '<' and '>' in horizontal_directions:
+            continue
+        if direction == '>' and '<' in horizontal_directions:
+            continue
+        print("NO")
+        return
+
+    # Check if the vertical streets allow traffic to move in both directions
+    for direction in vertical_directions:
+        if direction == '=':
+            continue
+        if direction == '^' and '^' in vertical_directions:
+            continue
+        if direction == 'v' and 'v' in vertical_directions:
+            continue
+        if direction == '^' and 'v' in vertical_directions:
+            continue
+        if direction == 'v' and '^' in vertical_directions:
+            continue
+        print("NO")
+        return
+
+    print("YES")
+
+if __name__ == "__main__":
+    main()

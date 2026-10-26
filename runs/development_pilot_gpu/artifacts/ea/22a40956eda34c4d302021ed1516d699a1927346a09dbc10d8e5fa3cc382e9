@@ -1,0 +1,12 @@
+def can_be_divisible_by_64(s):
+    # Check if the string can be reduced to a number divisible by 64
+    for i in range(6):
+        if s[i:i+6] == '0'*6:
+            return 'yes'
+    return 'no'
+
+# Read input from standard input
+input_string = input().strip()
+
+# Process the input and print the result
+print(can_be_divisible_by_64(input_string))

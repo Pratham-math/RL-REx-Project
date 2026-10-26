@@ -1,0 +1,35 @@
+import sys
+
+# Read input from standard input
+input = sys.stdin.read
+data = input().split()
+
+# Parse the input
+n = int(data[0])
+k = int(data[1])
+tabs = list(map(int, data[2:]))
+
+# Initialize counters for remaining test and social network tabs
+remaining_test = 0
+remaining_social = 0
+
+# Iterate through all possible starting points
+for b in range(1, n + 1):
+    # Reset counters for each starting point
+    e = 0
+    s = 0
+    # Close tabs starting from the current position b
+    for i in range(b, n + 1, k):
+        if tabs[i - 1] == 1:
+            e += 1
+        else:
+            s += 1
+    # Update the maximum absolute difference
+    remaining_test = max(remaining_test, e)
+    remaining_social = max(remaining_social, s)
+
+# Calculate the maximum absolute difference
+max_difference = abs(remaining_test - remaining_social)
+
+# Write the result to standard output
+print(max_difference)

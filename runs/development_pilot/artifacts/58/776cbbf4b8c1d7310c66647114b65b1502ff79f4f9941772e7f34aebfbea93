@@ -1,0 +1,31 @@
+def can_reach_all(n, m, horizontal, vertical):
+    # Check horizontal streets
+    for i in range(n):
+        if horizontal[i] == '<':
+            if i == 0 or horizontal[i-1] != '>':
+                return False
+        else:
+            if i < n-1 and horizontal[i+1] != '<':
+                return False
+    
+    # Check vertical streets
+    for j in range(m):
+        if vertical[j] == '^':
+            if j == 0 or vertical[j-1] != 'v':
+                return False
+        else:
+            if j < m-1 and vertical[j+1] != '^':
+                return False
+    
+    return True
+
+# Read input
+n, m = map(int, input().split())
+horizontal = input().strip()
+vertical = input().strip()
+
+# Check if it's possible to reach any junction from any other junction
+result = "YES" if can_reach_all(n, m, horizontal, vertical) else "NO"
+
+# Output the result
+print(result)

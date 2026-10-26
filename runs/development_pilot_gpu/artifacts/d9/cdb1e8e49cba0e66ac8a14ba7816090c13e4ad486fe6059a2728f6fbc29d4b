@@ -1,0 +1,15 @@
+import sys
+
+def compare_large_numbers():
+    a = input().strip()
+    b = input().strip()
+    
+    if a < b:
+        print("<")
+    elif a > b:
+        print(">")
+    else:
+        print("=")
+
+if __name__ == "__main__":
+    compare_large_numbers()

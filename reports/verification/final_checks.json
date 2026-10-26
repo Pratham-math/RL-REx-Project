@@ -1,0 +1,48 @@
+[
+  {
+    "name": "ruff",
+    "command": [
+      "-m",
+      "ruff",
+      "check",
+      "src",
+      "tests",
+      "tools"
+    ],
+    "returncode": 0
+  },
+  {
+    "name": "mypy",
+    "command": [
+      "-m",
+      "mypy",
+      "src/rexbench"
+    ],
+    "returncode": 0
+  },
+  {
+    "name": "offline",
+    "command": [
+      "-m",
+      "pytest",
+      "-m",
+      "not docker and not live",
+      "-q",
+      "--junitxml=reports/verification/offline.xml"
+    ],
+    "returncode": 0
+  },
+  {
+    "name": "live",
+    "command": [
+      "-m",
+      "pytest",
+      "-m",
+      "live",
+      "-q",
+      "-rs",
+      "--junitxml=reports/verification/live.xml"
+    ],
+    "returncode": 0
+  }
+]

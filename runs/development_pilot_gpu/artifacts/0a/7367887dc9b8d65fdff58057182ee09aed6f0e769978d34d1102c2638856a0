@@ -1,0 +1,13 @@
+import sys
+input = sys.stdin.read
+output = sys.stdout.write
+
+a = input().strip()
+b = input().strip()
+
+if a < b:
+    output("<")
+elif a > b:
+    output(">")
+else:
+    output("=")

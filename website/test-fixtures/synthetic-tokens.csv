@@ -1,0 +1,4 @@
+method,label,mock_calls,mock_tokens,synthetic,mock_tokens_per_call
+resample,Resampling,40,25819,True,645.48
+rex,REx,34,27311,True,803.26
+rex_progress_cost,Progress + cost,34,26984,True,793.65

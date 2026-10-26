@@ -1,0 +1,21 @@
+import sys
+import io
+
+# Redirect input and output to use stdin and stdout respectively
+input = io.BytesIO(sys.stdin.buffer.read()).readline
+sys.stdout = io.BytesIO()
+output = sys.stdout.write
+
+a = input().decode().strip()
+b = input().decode().strip()
+
+if a < b:
+    output("<")
+elif a > b:
+    output(">")
+else:
+    output("=")
+
+# Flush and close the output buffer to ensure the output is written
+sys.stdout.flush()
+sys.stdout.close()

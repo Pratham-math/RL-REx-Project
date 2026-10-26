@@ -1,0 +1,41 @@
+import sys
+
+def can_reach_insect(n, k, line):
+    start = line.find('G')
+    target = line.find('T')
+    
+    if start == -1 or target == -1:
+        return "NO"
+    
+    if abs(start - target) % (k + 1) != 0:
+        return "NO"
+    
+    if start < target:
+        jump = 1
+        while start < target:
+            if start + k >= target and line[start + k] != '#':
+                start += k
+            elif start - 1 >= 0 and line[start - 1] != '#':
+                start -= 1
+            else:
+                return "NO"
+            jump += 1
+    else:
+        jump = 1
+        while start > target:
+            if start - k <= target and line[start - k] != '#':
+                start -= k
+            elif start + 1 < n and line[start + 1] != '#':
+                start += 1
+            else:
+                return "NO"
+            jump += 1
+    
+    return "YES"
+
+# Read input
+n, k = map(int, sys.stdin.readline().split())
+line = sys.stdin.readline().strip()
+
+# Output the result
+print(can_reach_insect(n, k, line))

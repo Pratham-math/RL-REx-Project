@@ -1,0 +1,19 @@
+def can_be_divisible_by_64(s):
+    # Check if the string is empty
+    if not s:
+        return "no"
+    
+    # Convert the binary string to an integer
+    num = int(s, 2)
+    
+    # Check if the number is divisible by 64
+    if num % 64 == 0:
+        return "yes"
+    else:
+        return "no"
+
+# Read the input string from standard input
+s = input().strip()
+
+# Call the function and print the result
+print(can_be_divisible_by_64(s))

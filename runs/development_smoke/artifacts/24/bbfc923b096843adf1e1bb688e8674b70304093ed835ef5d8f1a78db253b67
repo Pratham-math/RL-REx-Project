@@ -1,0 +1,24 @@
+def is_reachable(n, m, horizontal, vertical):
+    # Check horizontal directions
+    for i in range(n):
+        if horizontal[i] == '<' and (i > 0 and horizontal[i-1] == '<') or (i < n-1 and horizontal[i+1] == '<'):
+            return "NO"
+        if horizontal[i] == '>' and (i > 0 and horizontal[i-1] == '>') or (i < n-1 and horizontal[i+1] == '>'):
+            return "NO"
+    
+    # Check vertical directions
+    for i in range(m):
+        if vertical[i] == '^' and (i > 0 and vertical[i-1] == '^') or (i < m-1 and vertical[i+1] == '^'):
+            return "NO"
+        if vertical[i] == 'v' and (i > 0 and vertical[i-1] == 'v') or (i < m-1 and vertical[i+1] == 'v'):
+            return "NO"
+    
+    return "YES"
+
+# Read input
+n, m = map(int, input().split())
+horizontal = input().strip()
+vertical = input().strip()
+
+# Print the result
+print(is_reachable(n, m, horizontal, vertical))

@@ -1,0 +1,25 @@
+{
+  "project_id": "appgprj_6adedb70853481918a34aafc53442903",
+  "deployment_id": "appgdep_6adeeda15a18819194edd1a7ae088fe6",
+  "version_id": "appgprj_6adedb70853481918a34aafc53442903~appgver_88e1d9938b4c819186098baf8858dd27",
+  "commit_sha": "9cf25b9fea9bb877c57bdb06e31b9ef297f79cc4",
+  "checkout": "site_hosting",
+  "archive": "dist/hosted_code_repair_fixtures.tar.gz",
+  "expected_url": "https://code-repair-project-notes.purplestork34.chatgpt.site",
+  "audience": "public",
+  "status": "succeeded",
+  "checks": {
+    "pages": 6,
+    "html_files": 9,
+    "local_links": 119,
+    "broken_links": 0,
+    "duplicate_ids": 0,
+    "javascript_syntax": "passed"
+  },
+  "url": "https://code-repair-project-notes.purplestork34.chatgpt.site",
+  "published_at": "2026-10-26T06:05:44.806858+00:00",
+  "access_policy_revision": 2,
+  "access_updated_at": "2026-10-26T04:55:48.390825+00:00",
+  "synthetic_fixture_url": "https://code-repair-project-notes.purplestork34.chatgpt.site/test-fixtures/",
+  "recorded_benchmark_values_unchanged": true
+}

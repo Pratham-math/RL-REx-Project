@@ -1,0 +1,20 @@
+def is_reachable(n, m, horizontal_streets, vertical_streets):
+    # Check if it's possible to move from leftmost to rightmost street horizontally
+    for i in range(n):
+        if horizontal_streets[i] == '<':
+            if not (horizontal_streets[(i - 1) % n] == '>' or horizontal_streets[(i + 1) % n] == '>'):
+                return "NO"
+    # Check if it's possible to move from topmost to bottommost street vertically
+    for j in range(m):
+        if vertical_streets[j] == '^':
+            if not (vertical_streets[(j - 1) % m] == 'v' or vertical_streets[(j + 1) % m] == 'v'):
+                return "NO"
+    return "YES"
+
+# Read input
+n, m = map(int, input().split())
+horizontal_streets = input().strip()
+vertical_streets = input().strip()
+
+# Write output
+print(is_reachable(n, m, horizontal_streets, vertical_streets))

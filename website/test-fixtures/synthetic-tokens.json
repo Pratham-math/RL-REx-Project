@@ -1,0 +1,33 @@
+{
+  "synthetic": true,
+  "purpose": "UI and export testing only",
+  "benchmark_evidence": false,
+  "notice": "Invented fixture values. These are not measured model token counts.",
+  "methods": [
+    {
+      "method": "resample",
+      "label": "Resampling",
+      "mock_calls": 40,
+      "mock_tokens": 25819,
+      "synthetic": true,
+      "mock_tokens_per_call": 645.48
+    },
+    {
+      "method": "rex",
+      "label": "REx",
+      "mock_calls": 34,
+      "mock_tokens": 27311,
+      "synthetic": true,
+      "mock_tokens_per_call": 803.26
+    },
+    {
+      "method": "rex_progress_cost",
+      "label": "Progress + cost",
+      "mock_calls": 34,
+      "mock_tokens": 26984,
+      "synthetic": true,
+      "mock_tokens_per_call": 793.65
+    }
+  ],
+  "mock_total_tokens": 80114
+}

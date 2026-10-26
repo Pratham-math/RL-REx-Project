@@ -1,0 +1,3 @@
+[submodule "vendor/REx"]
+	path = vendor/REx
+	url = https://github.com/haotang1995/REx.git

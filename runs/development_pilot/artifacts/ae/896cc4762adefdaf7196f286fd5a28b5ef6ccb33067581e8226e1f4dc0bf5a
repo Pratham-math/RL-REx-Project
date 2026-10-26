@@ -1,0 +1,19 @@
+def is_reachable(n, m, horizontal_streets, vertical_streets):
+    # Check if it's possible to reach any junction from any other junction
+    # This can be done by ensuring there are no isolated segments
+    # In other words, there should be no vertical street going north-to-south
+    # and no horizontal street going east-to-west
+    for i in range(n):
+        if horizontal_streets[i] == '>':
+            for j in range(m):
+                if vertical_streets[j] == '^':
+                    return "NO"
+    return "YES"
+
+# Read input from standard input
+n, m = map(int, input().split())
+horizontal_streets = input().strip()
+vertical_streets = input().strip()
+
+# Output the result
+print(is_reachable(n, m, horizontal_streets, vertical_streets))

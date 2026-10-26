@@ -1,0 +1,1183 @@
+<!doctype html><html><head><meta charset='utf-8'><meta http-equiv='Content-Security-Policy' content="default-src 'none'; style-src 'unsafe-inline'"><title>REx recorded search</title><style>body{font:16px system-ui;max-width:1100px;margin:2rem auto;padding:1rem;background:#f4f6f8;color:#172b3a}pre{white-space:pre-wrap;overflow-wrap:anywhere;background:white;padding:1rem;border:1px solid #ccd}details{margin:1rem 0;padding:.8rem;border:1px solid #aaa}table{border-collapse:collapse}td,th{border:1px solid #aaa;padding:.4rem}</style></head><body><h1>Recorded local-model search</h1><p>test/0173 · resample · seed 0</p><h2>Problem</h2><pre>Imagine a city with n horizontal streets crossing m vertical streets, forming an (n - 1) × (m - 1) grid. In order to increase the traffic flow, mayor of the city has decided to make each street one way. This means in each horizontal street, the traffic moves only from west to east or only from east to west. Also, traffic moves only from north to south or only from south to north in each vertical street. It is possible to enter a horizontal street from a vertical street, or vice versa, at their intersection.
+
+ [Image] 
+
+The mayor has received some street direction patterns. Your task is to check whether it is possible to reach any junction from any other junction in the proposed street direction pattern.
+
+
+-----Input-----
+
+The first line of input contains two integers n and m, (2 ≤ n, m ≤ 20), denoting the number of horizontal streets and the number of vertical streets.
+
+The second line contains a string of length n, made of characters &#x27;&lt;&#x27; and &#x27;&gt;&#x27;, denoting direction of each horizontal street. If the i-th character is equal to &#x27;&lt;&#x27;, the street is directed from east to west otherwise, the street is directed from west to east. Streets are listed in order from north to south.
+
+The third line contains a string of length m, made of characters &#x27;^&#x27; and &#x27;v&#x27;, denoting direction of each vertical street. If the i-th character is equal to &#x27;^&#x27;, the street is directed from south to north, otherwise the street is directed from north to south. Streets are listed in order from west to east.
+
+
+-----Output-----
+
+If the given pattern meets the mayor&#x27;s criteria, print a single line containing &quot;YES&quot;, otherwise print a single line containing &quot;NO&quot;.
+
+
+-----Examples-----
+Input
+3 3
+&gt;&lt;&gt;
+v^v
+
+Output
+NO
+
+Input
+4 6
+&lt;&gt;&lt;&gt;
+v^v^v^
+
+Output
+YES
+
+
+
+-----Note-----
+
+The figure above shows street directions in the second sample test case.</pre><p>Nodes follow generation order. Each parent → child is a recorded refinement edge. Hidden tests did not select these returns.</p><div style='overflow:auto'><svg xmlns='http://www.w3.org/2000/svg' role='img' aria-label='Recorded repair tree' width='1080' height='210'><line x1='45' y1='45' x2='185' y2='135' stroke='#8a99a6' stroke-width='2'/><line x1='45' y1='45' x2='300' y2='135' stroke='#8a99a6' stroke-width='2'/><line x1='45' y1='45' x2='415' y2='135' stroke='#8a99a6' stroke-width='2'/><line x1='45' y1='45' x2='530' y2='135' stroke='#8a99a6' stroke-width='2'/><line x1='45' y1='45' x2='645' y2='135' stroke='#8a99a6' stroke-width='2'/><line x1='45' y1='45' x2='760' y2='135' stroke='#8a99a6' stroke-width='2'/><line x1='45' y1='45' x2='875' y2='135' stroke='#8a99a6' stroke-width='2'/><line x1='45' y1='45' x2='990' y2='135' stroke='#8a99a6' stroke-width='2'/><circle cx='45' cy='45' r='25' fill='#66717c'/><text x='45' y='50' text-anchor='middle' fill='white' font-size='13'>root</text><text x='45' y='88' text-anchor='middle' fill='#172b3a' font-size='12'>root</text><circle cx='185' cy='135' r='25' fill='rgb(50,116,103)'/><text x='185' y='140' text-anchor='middle' fill='white' font-size='13'>0.67</text><text x='185' y='178' text-anchor='middle' fill='#172b3a' font-size='12'>arm-1</text><circle cx='300' cy='135' r='25' fill='rgb(40,70,150)'/><text x='300' y='140' text-anchor='middle' fill='white' font-size='13'>0.00</text><text x='300' y='178' text-anchor='middle' fill='#172b3a' font-size='12'>arm-2</text><circle cx='415' cy='135' r='25' fill='rgb(50,116,103)'/><text x='415' y='140' text-anchor='middle' fill='white' font-size='13'>0.67</text><text x='415' y='178' text-anchor='middle' fill='#172b3a' font-size='12'>arm-3</text><circle cx='530' cy='135' r='25' fill='rgb(50,116,103)'/><text x='530' y='140' text-anchor='middle' fill='white' font-size='13'>0.67</text><text x='530' y='178' text-anchor='middle' fill='#172b3a' font-size='12'>arm-4</text><circle cx='645' cy='135' r='25' fill='rgb(45,93,126)'/><text x='645' y='140' text-anchor='middle' fill='white' font-size='13'>0.33</text><text x='645' y='178' text-anchor='middle' fill='#172b3a' font-size='12'>arm-5</text><circle cx='760' cy='135' r='25' fill='rgb(50,116,103)'/><text x='760' y='140' text-anchor='middle' fill='white' font-size='13'>0.67</text><text x='760' y='178' text-anchor='middle' fill='#172b3a' font-size='12'>arm-6</text><circle cx='875' cy='135' r='25' fill='rgb(50,116,103)'/><text x='875' y='140' text-anchor='middle' fill='white' font-size='13'>0.67</text><text x='875' y='178' text-anchor='middle' fill='#172b3a' font-size='12'>arm-7</text><circle cx='990' cy='135' r='25' fill='rgb(50,116,103)'/><text x='990' y='140' text-anchor='middle' fill='white' font-size='13'>0.67</text><text x='990' y='178' text-anchor='middle' fill='#172b3a' font-size='12'>arm-8</text></svg></div><details open><summary>root → arm-1: repair h=0.667, depth 1</summary><p>Estimated tokens 1023.5; actual 696; cumulative 696; parent α,β after: [1.0, 2.0]</p><pre>def is_reachable(n, m, horizontal, vertical):
+    # Check horizontal directions
+    for i in range(n):
+        if horizontal[i] == &#x27;&lt;&#x27; and any(horizontal[j] == &#x27;&gt;&#x27; for j in range(i + 1, n)):
+            return &quot;NO&quot;
+        if horizontal[i] == &#x27;&gt;&#x27; and any(horizontal[j] == &#x27;&lt;&#x27; for j in range(i + 1, n)):
+            return &quot;NO&quot;
+    
+    # Check vertical directions
+    for i in range(m):
+        if vertical[i] == &#x27;^&#x27; and any(vertical[j] == &#x27;v&#x27; for j in range(i + 1, m)):
+            return &quot;NO&quot;
+        if vertical[i] == &#x27;v&#x27; and any(vertical[j] == &#x27;^&#x27; for j in range(i + 1, m)):
+            return &quot;NO&quot;
+    
+    return &quot;YES&quot;
+
+# Read input
+n, m = map(int, input().split())
+horizontal = input().strip()
+vertical = input().strip()
+
+# Output result
+print(is_reachable(n, m, horizontal, vertical))</pre><details><summary>Selection draws, priorities and priors</summary><pre>{
+  &quot;chosen&quot;: &quot;root&quot;,
+  &quot;draws&quot;: {},
+  &quot;estimates&quot;: {
+    &quot;root&quot;: 1023.5
+  },
+  &quot;parameters&quot;: {
+    &quot;root&quot;: [
+      1,
+      1,
+      0
+    ]
+  },
+  &quot;priorities&quot;: {}
+}</pre></details><details><summary>Exact prompt and failure feedback</summary><pre>Write a complete Python 3 program using only the standard library.
+Read from standard input and write only the required output to standard output.
+Return one Python code block containing the complete program.
+
+Problem:
+Imagine a city with n horizontal streets crossing m vertical streets, forming an (n - 1) × (m - 1) grid. In order to increase the traffic flow, mayor of the city has decided to make each street one way. This means in each horizontal street, the traffic moves only from west to east or only from east to west. Also, traffic moves only from north to south or only from south to north in each vertical street. It is possible to enter a horizontal street from a vertical street, or vice versa, at their intersection.
+
+ [Image] 
+
+The mayor has received some street direction patterns. Your task is to check whether it is possible to reach any junction from any other junction in the proposed street direction pattern.
+
+
+-----Input-----
+
+The first line of input contains two integers n and m, (2 ≤ n, m ≤ 20), denoting the number of horizontal streets and the number of vertical streets.
+
+The second line contains a string of length n, made of characters &#x27;&lt;&#x27; and &#x27;&gt;&#x27;, denoting direction of each horizontal street. If the i-th character is equal to &#x27;&lt;&#x27;, the street is directed from east to west otherwise, the street is directed from west to east. Streets are listed in order from north to south.
+
+The third line contains a string of length m, made of characters &#x27;^&#x27; and &#x27;v&#x27;, denoting direction of each vertical street. If the i-th character is equal to &#x27;^&#x27;, the street is directed from south to north, otherwise the street is directed from north to south. Streets are listed in order from west to east.
+
+
+-----Output-----
+
+If the given pattern meets the mayor&#x27;s criteria, print a single line containing &quot;YES&quot;, otherwise print a single line containing &quot;NO&quot;.
+
+
+-----Examples-----
+Input
+3 3
+&gt;&lt;&gt;
+v^v
+
+Output
+NO
+
+Input
+4 6
+&lt;&gt;&lt;&gt;
+v^v^v^
+
+Output
+YES
+
+
+
+-----Note-----
+
+The figure above shows street directions in the second sample test case.</pre></details><details><summary>Resource ledger</summary><pre>{
+  &quot;external_spend_usd&quot;: 0.0,
+  &quot;http_attempts&quot;: 1,
+  &quot;inference_attempts&quot;: 1,
+  &quot;judge_seconds&quot;: 4.953000000001339,
+  &quot;model_seconds&quot;: 24.718999999997322,
+  &quot;orchestration_seconds&quot;: 0.17199999999866122,
+  &quot;output_tokens&quot;: 221,
+  &quot;policy_steps&quot;: 1,
+  &quot;prompt_tokens&quot;: 475,
+  &quot;reservations&quot;: 0,
+  &quot;schema_version&quot;: 1,
+  &quot;unknown_usage&quot;: 0,
+  &quot;usable_completions&quot;: 1
+}</pre></details></details><details open><summary>root → arm-2: repair h=0.000, depth 1</summary><p>Estimated tokens 957.6; actual 840; cumulative 1536; parent α,β after: [1.0, 3.0]</p><pre>[INVALID COMPLETION]</pre><details><summary>Selection draws, priorities and priors</summary><pre>{
+  &quot;chosen&quot;: &quot;root&quot;,
+  &quot;draws&quot;: {},
+  &quot;estimates&quot;: {
+    &quot;arm-1&quot;: 1214.6075886377773,
+    &quot;root&quot;: 957.5580344184118
+  },
+  &quot;parameters&quot;: {
+    &quot;arm-1&quot;: [
+      14.333333333333332,
+      7.666666666666668,
+      0
+    ],
+    &quot;root&quot;: [
+      1.0,
+      2.0,
+      1
+    ]
+  },
+  &quot;priorities&quot;: {}
+}</pre></details><details><summary>Exact prompt and failure feedback</summary><pre>Write a complete Python 3 program using only the standard library.
+Read from standard input and write only the required output to standard output.
+Return one Python code block containing the complete program.
+
+Problem:
+Imagine a city with n horizontal streets crossing m vertical streets, forming an (n - 1) × (m - 1) grid. In order to increase the traffic flow, mayor of the city has decided to make each street one way. This means in each horizontal street, the traffic moves only from west to east or only from east to west. Also, traffic moves only from north to south or only from south to north in each vertical street. It is possible to enter a horizontal street from a vertical street, or vice versa, at their intersection.
+
+ [Image] 
+
+The mayor has received some street direction patterns. Your task is to check whether it is possible to reach any junction from any other junction in the proposed street direction pattern.
+
+
+-----Input-----
+
+The first line of input contains two integers n and m, (2 ≤ n, m ≤ 20), denoting the number of horizontal streets and the number of vertical streets.
+
+The second line contains a string of length n, made of characters &#x27;&lt;&#x27; and &#x27;&gt;&#x27;, denoting direction of each horizontal street. If the i-th character is equal to &#x27;&lt;&#x27;, the street is directed from east to west otherwise, the street is directed from west to east. Streets are listed in order from north to south.
+
+The third line contains a string of length m, made of characters &#x27;^&#x27; and &#x27;v&#x27;, denoting direction of each vertical street. If the i-th character is equal to &#x27;^&#x27;, the street is directed from south to north, otherwise the street is directed from north to south. Streets are listed in order from west to east.
+
+
+-----Output-----
+
+If the given pattern meets the mayor&#x27;s criteria, print a single line containing &quot;YES&quot;, otherwise print a single line containing &quot;NO&quot;.
+
+
+-----Examples-----
+Input
+3 3
+&gt;&lt;&gt;
+v^v
+
+Output
+NO
+
+Input
+4 6
+&lt;&gt;&lt;&gt;
+v^v^v^
+
+Output
+YES
+
+
+
+-----Note-----
+
+The figure above shows street directions in the second sample test case.</pre></details><details><summary>Resource ledger</summary><pre>{
+  &quot;external_spend_usd&quot;: 0.0,
+  &quot;http_attempts&quot;: 2,
+  &quot;inference_attempts&quot;: 2,
+  &quot;judge_seconds&quot;: 4.953000000001339,
+  &quot;model_seconds&quot;: 32.67199999999866,
+  &quot;orchestration_seconds&quot;: 0.35899999999674037,
+  &quot;output_tokens&quot;: 586,
+  &quot;policy_steps&quot;: 2,
+  &quot;prompt_tokens&quot;: 950,
+  &quot;reservations&quot;: 0,
+  &quot;schema_version&quot;: 1,
+  &quot;unknown_usage&quot;: 0,
+  &quot;usable_completions&quot;: 1
+}</pre></details></details><details open><summary>root → arm-3: repair h=0.667, depth 1</summary><p>Estimated tokens 933.8; actual 715; cumulative 2251; parent α,β after: [1.0, 4.0]</p><pre>def is_reachable(n, m, horizontal_streets, vertical_streets):
+    # Check if it&#x27;s possible to move from leftmost to rightmost street horizontally
+    for i in range(n):
+        if horizontal_streets[i] == &#x27;&lt;&#x27;:
+            if not (horizontal_streets[(i - 1) % n] == &#x27;&gt;&#x27; or horizontal_streets[(i + 1) % n] == &#x27;&gt;&#x27;):
+                return &quot;NO&quot;
+    # Check if it&#x27;s possible to move from topmost to bottommost street vertically
+    for j in range(m):
+        if vertical_streets[j] == &#x27;^&#x27;:
+            if not (vertical_streets[(j - 1) % m] == &#x27;v&#x27; or vertical_streets[(j + 1) % m] == &#x27;v&#x27;):
+                return &quot;NO&quot;
+    return &quot;YES&quot;
+
+# Read input
+n, m = map(int, input().split())
+horizontal_streets = input().strip()
+vertical_streets = input().strip()
+
+# Write output
+print(is_reachable(n, m, horizontal_streets, vertical_streets))</pre><details><summary>Selection draws, priorities and priors</summary><pre>{
+  &quot;chosen&quot;: &quot;root&quot;,
+  &quot;draws&quot;: {},
+  &quot;estimates&quot;: {
+    &quot;arm-1&quot;: 1187.745453353546,
+    &quot;arm-2&quot;: 998.7243733355183,
+    &quot;root&quot;: 933.771183676814
+  },
+  &quot;parameters&quot;: {
+    &quot;arm-1&quot;: [
+      14.333333333333332,
+      7.666666666666668,
+      0
+    ],
+    &quot;arm-2&quot;: [
+      1.0,
+      21.0,
+      0
+    ],
+    &quot;root&quot;: [
+      1.0,
+      3.0,
+      2
+    ]
+  },
+  &quot;priorities&quot;: {}
+}</pre></details><details><summary>Exact prompt and failure feedback</summary><pre>Write a complete Python 3 program using only the standard library.
+Read from standard input and write only the required output to standard output.
+Return one Python code block containing the complete program.
+
+Problem:
+Imagine a city with n horizontal streets crossing m vertical streets, forming an (n - 1) × (m - 1) grid. In order to increase the traffic flow, mayor of the city has decided to make each street one way. This means in each horizontal street, the traffic moves only from west to east or only from east to west. Also, traffic moves only from north to south or only from south to north in each vertical street. It is possible to enter a horizontal street from a vertical street, or vice versa, at their intersection.
+
+ [Image] 
+
+The mayor has received some street direction patterns. Your task is to check whether it is possible to reach any junction from any other junction in the proposed street direction pattern.
+
+
+-----Input-----
+
+The first line of input contains two integers n and m, (2 ≤ n, m ≤ 20), denoting the number of horizontal streets and the number of vertical streets.
+
+The second line contains a string of length n, made of characters &#x27;&lt;&#x27; and &#x27;&gt;&#x27;, denoting direction of each horizontal street. If the i-th character is equal to &#x27;&lt;&#x27;, the street is directed from east to west otherwise, the street is directed from west to east. Streets are listed in order from north to south.
+
+The third line contains a string of length m, made of characters &#x27;^&#x27; and &#x27;v&#x27;, denoting direction of each vertical street. If the i-th character is equal to &#x27;^&#x27;, the street is directed from south to north, otherwise the street is directed from north to south. Streets are listed in order from west to east.
+
+
+-----Output-----
+
+If the given pattern meets the mayor&#x27;s criteria, print a single line containing &quot;YES&quot;, otherwise print a single line containing &quot;NO&quot;.
+
+
+-----Examples-----
+Input
+3 3
+&gt;&lt;&gt;
+v^v
+
+Output
+NO
+
+Input
+4 6
+&lt;&gt;&lt;&gt;
+v^v^v^
+
+Output
+YES
+
+
+
+-----Note-----
+
+The figure above shows street directions in the second sample test case.</pre></details><details><summary>Resource ledger</summary><pre>{
+  &quot;external_spend_usd&quot;: 0.0,
+  &quot;http_attempts&quot;: 3,
+  &quot;inference_attempts&quot;: 3,
+  &quot;judge_seconds&quot;: 9.23399999999674,
+  &quot;model_seconds&quot;: 37.56300000000192,
+  &quot;orchestration_seconds&quot;: 0.5309999999954016,
+  &quot;output_tokens&quot;: 826,
+  &quot;policy_steps&quot;: 3,
+  &quot;prompt_tokens&quot;: 1425,
+  &quot;reservations&quot;: 0,
+  &quot;schema_version&quot;: 1,
+  &quot;unknown_usage&quot;: 0,
+  &quot;usable_completions&quot;: 2
+}</pre></details></details><details open><summary>root → arm-4: repair h=0.667, depth 1</summary><p>Estimated tokens 889.8; actual 618; cumulative 2869; parent α,β after: [1.0, 5.0]</p><pre>def is_reachable(n, m, horizontal, vertical):
+    # Check if the horizontal streets allow movement from left to right
+    if &#x27;&lt;&#x27; in horizontal and &#x27;&gt;&#x27; in horizontal:
+        return &quot;NO&quot;
+    
+    # Check if the vertical streets allow movement from top to bottom
+    if &#x27;^&#x27; in vertical and &#x27;v&#x27; in vertical:
+        return &quot;NO&quot;
+    
+    return &quot;YES&quot;
+
+# Read input
+n, m = map(int, input().split())
+horizontal = input().strip()
+vertical = input().strip()
+
+# Check if the given pattern is reachable
+result = is_reachable(n, m, horizontal, vertical)
+
+# Print the result
+print(result)</pre><details><summary>Selection draws, priorities and priors</summary><pre>{
+  &quot;chosen&quot;: &quot;root&quot;,
+  &quot;draws&quot;: {},
+  &quot;estimates&quot;: {
+    &quot;arm-1&quot;: 1141.411068691509,
+    &quot;arm-2&quot;: 952.9771425695801,
+    &quot;arm-3&quot;: 1148.8809557884142,
+    &quot;root&quot;: 889.8445483957371
+  },
+  &quot;parameters&quot;: {
+    &quot;arm-1&quot;: [
+      14.333333333333332,
+      7.666666666666668,
+      0
+    ],
+    &quot;arm-2&quot;: [
+      1.0,
+      21.0,
+      0
+    ],
+    &quot;arm-3&quot;: [
+      14.333333333333332,
+      7.666666666666668,
+      0
+    ],
+    &quot;root&quot;: [
+      1.0,
+      4.0,
+      3
+    ]
+  },
+  &quot;priorities&quot;: {}
+}</pre></details><details><summary>Exact prompt and failure feedback</summary><pre>Write a complete Python 3 program using only the standard library.
+Read from standard input and write only the required output to standard output.
+Return one Python code block containing the complete program.
+
+Problem:
+Imagine a city with n horizontal streets crossing m vertical streets, forming an (n - 1) × (m - 1) grid. In order to increase the traffic flow, mayor of the city has decided to make each street one way. This means in each horizontal street, the traffic moves only from west to east or only from east to west. Also, traffic moves only from north to south or only from south to north in each vertical street. It is possible to enter a horizontal street from a vertical street, or vice versa, at their intersection.
+
+ [Image] 
+
+The mayor has received some street direction patterns. Your task is to check whether it is possible to reach any junction from any other junction in the proposed street direction pattern.
+
+
+-----Input-----
+
+The first line of input contains two integers n and m, (2 ≤ n, m ≤ 20), denoting the number of horizontal streets and the number of vertical streets.
+
+The second line contains a string of length n, made of characters &#x27;&lt;&#x27; and &#x27;&gt;&#x27;, denoting direction of each horizontal street. If the i-th character is equal to &#x27;&lt;&#x27;, the street is directed from east to west otherwise, the street is directed from west to east. Streets are listed in order from north to south.
+
+The third line contains a string of length m, made of characters &#x27;^&#x27; and &#x27;v&#x27;, denoting direction of each vertical street. If the i-th character is equal to &#x27;^&#x27;, the street is directed from south to north, otherwise the street is directed from north to south. Streets are listed in order from west to east.
+
+
+-----Output-----
+
+If the given pattern meets the mayor&#x27;s criteria, print a single line containing &quot;YES&quot;, otherwise print a single line containing &quot;NO&quot;.
+
+
+-----Examples-----
+Input
+3 3
+&gt;&lt;&gt;
+v^v
+
+Output
+NO
+
+Input
+4 6
+&lt;&gt;&lt;&gt;
+v^v^v^
+
+Output
+YES
+
+
+
+-----Note-----
+
+The figure above shows street directions in the second sample test case.</pre></details><details><summary>Resource ledger</summary><pre>{
+  &quot;external_spend_usd&quot;: 0.0,
+  &quot;http_attempts&quot;: 4,
+  &quot;inference_attempts&quot;: 4,
+  &quot;judge_seconds&quot;: 13.748999999996158,
+  &quot;model_seconds&quot;: 40.845000000001164,
+  &quot;orchestration_seconds&quot;: 0.7959999999948195,
+  &quot;output_tokens&quot;: 969,
+  &quot;policy_steps&quot;: 4,
+  &quot;prompt_tokens&quot;: 1900,
+  &quot;reservations&quot;: 0,
+  &quot;schema_version&quot;: 1,
+  &quot;unknown_usage&quot;: 0,
+  &quot;usable_completions&quot;: 3
+}</pre></details></details><details open><summary>root → arm-5: repair h=0.333, depth 1</summary><p>Estimated tokens 835.4; actual 748; cumulative 3617; parent α,β after: [1.0, 6.0]</p><pre>import sys
+
+def main():
+    n, m = map(int, input().split())
+    horizontal_directions = input().strip()
+    vertical_directions = input().strip()
+
+    # Check if the horizontal streets allow traffic to move in both directions
+    for direction in horizontal_directions:
+        if direction == &#x27;=&#x27;:
+            continue
+        if direction == &#x27;&lt;&#x27; and &#x27;&lt;&#x27; in horizontal_directions:
+            continue
+        if direction == &#x27;&gt;&#x27; and &#x27;&gt;&#x27; in horizontal_directions:
+            continue
+        if direction == &#x27;&lt;&#x27; and &#x27;&gt;&#x27; in horizontal_directions:
+            continue
+        if direction == &#x27;&gt;&#x27; and &#x27;&lt;&#x27; in horizontal_directions:
+            continue
+        print(&quot;NO&quot;)
+        return
+
+    # Check if the vertical streets allow traffic to move in both directions
+    for direction in vertical_directions:
+        if direction == &#x27;=&#x27;:
+            continue
+        if direction == &#x27;^&#x27; and &#x27;^&#x27; in vertical_directions:
+            continue
+        if direction == &#x27;v&#x27; and &#x27;v&#x27; in vertical_directions:
+            continue
+        if direction == &#x27;^&#x27; and &#x27;v&#x27; in vertical_directions:
+            continue
+        if direction == &#x27;v&#x27; and &#x27;^&#x27; in vertical_directions:
+            continue
+        print(&quot;NO&quot;)
+        return
+
+    print(&quot;YES&quot;)
+
+if __name__ == &quot;__main__&quot;:
+    main()</pre><details><summary>Selection draws, priorities and priors</summary><pre>{
+  &quot;chosen&quot;: &quot;root&quot;,
+  &quot;draws&quot;: {},
+  &quot;estimates&quot;: {
+    &quot;arm-1&quot;: 1085.0401153354267,
+    &quot;arm-2&quot;: 898.0245583799885,
+    &quot;arm-3&quot;: 1092.4537755216397,
+    &quot;arm-4&quot;: 1033.383644360523,
+    &quot;root&quot;: 835.3671722900592
+  },
+  &quot;parameters&quot;: {
+    &quot;arm-1&quot;: [
+      14.333333333333332,
+      7.666666666666668,
+      0
+    ],
+    &quot;arm-2&quot;: [
+      1.0,
+      21.0,
+      0
+    ],
+    &quot;arm-3&quot;: [
+      14.333333333333332,
+      7.666666666666668,
+      0
+    ],
+    &quot;arm-4&quot;: [
+      14.333333333333332,
+      7.666666666666668,
+      0
+    ],
+    &quot;root&quot;: [
+      1.0,
+      5.0,
+      4
+    ]
+  },
+  &quot;priorities&quot;: {}
+}</pre></details><details><summary>Exact prompt and failure feedback</summary><pre>Write a complete Python 3 program using only the standard library.
+Read from standard input and write only the required output to standard output.
+Return one Python code block containing the complete program.
+
+Problem:
+Imagine a city with n horizontal streets crossing m vertical streets, forming an (n - 1) × (m - 1) grid. In order to increase the traffic flow, mayor of the city has decided to make each street one way. This means in each horizontal street, the traffic moves only from west to east or only from east to west. Also, traffic moves only from north to south or only from south to north in each vertical street. It is possible to enter a horizontal street from a vertical street, or vice versa, at their intersection.
+
+ [Image] 
+
+The mayor has received some street direction patterns. Your task is to check whether it is possible to reach any junction from any other junction in the proposed street direction pattern.
+
+
+-----Input-----
+
+The first line of input contains two integers n and m, (2 ≤ n, m ≤ 20), denoting the number of horizontal streets and the number of vertical streets.
+
+The second line contains a string of length n, made of characters &#x27;&lt;&#x27; and &#x27;&gt;&#x27;, denoting direction of each horizontal street. If the i-th character is equal to &#x27;&lt;&#x27;, the street is directed from east to west otherwise, the street is directed from west to east. Streets are listed in order from north to south.
+
+The third line contains a string of length m, made of characters &#x27;^&#x27; and &#x27;v&#x27;, denoting direction of each vertical street. If the i-th character is equal to &#x27;^&#x27;, the street is directed from south to north, otherwise the street is directed from north to south. Streets are listed in order from west to east.
+
+
+-----Output-----
+
+If the given pattern meets the mayor&#x27;s criteria, print a single line containing &quot;YES&quot;, otherwise print a single line containing &quot;NO&quot;.
+
+
+-----Examples-----
+Input
+3 3
+&gt;&lt;&gt;
+v^v
+
+Output
+NO
+
+Input
+4 6
+&lt;&gt;&lt;&gt;
+v^v^v^
+
+Output
+YES
+
+
+
+-----Note-----
+
+The figure above shows street directions in the second sample test case.</pre></details><details><summary>Resource ledger</summary><pre>{
+  &quot;external_spend_usd&quot;: 0.0,
+  &quot;http_attempts&quot;: 5,
+  &quot;inference_attempts&quot;: 5,
+  &quot;judge_seconds&quot;: 18.1079999999929,
+  &quot;model_seconds&quot;: 46.73500000000058,
+  &quot;orchestration_seconds&quot;: 1.0309999999954016,
+  &quot;output_tokens&quot;: 1242,
+  &quot;policy_steps&quot;: 5,
+  &quot;prompt_tokens&quot;: 2375,
+  &quot;reservations&quot;: 0,
+  &quot;schema_version&quot;: 1,
+  &quot;unknown_usage&quot;: 0,
+  &quot;usable_completions&quot;: 4
+}</pre></details></details><details open><summary>root → arm-6: repair h=0.667, depth 1</summary><p>Estimated tokens 817.8; actual 649; cumulative 4266; parent α,β after: [1.0, 7.0]</p><pre>from sys import stdin, stdout
+
+def is_reachable(n, m, horizontal, vertical):
+    # Check if all horizontal streets are in the same direction
+    if all(h == horizontal[0] for h in horizontal):
+        # Check if all vertical streets are in the same direction
+        if all(v == vertical[0] for v in vertical):
+            return True
+    return False
+
+def main():
+    input = stdin.read
+    data = input().split()
+    n = int(data[0])
+    m = int(data[1])
+    horizontal = data[2]
+    vertical = data[3]
+    
+    if is_reachable(n, m, horizontal, vertical):
+        stdout.write(&quot;YES\n&quot;)
+    else:
+        stdout.write(&quot;NO\n&quot;)
+
+if __name__ == &quot;__main__&quot;:
+    main()</pre><details><summary>Selection draws, priorities and priors</summary><pre>{
+  &quot;chosen&quot;: &quot;root&quot;,
+  &quot;draws&quot;: {},
+  &quot;estimates&quot;: {
+    &quot;arm-1&quot;: 1066.0037372694924,
+    &quot;arm-2&quot;: 881.2961881114356,
+    &quot;arm-3&quot;: 1073.3730217275358,
+    &quot;arm-4&quot;: 1014.6564649166735,
+    &quot;arm-5&quot;: 1187.9535091074372,
+    &quot;root&quot;: 817.8252542308678
+  },
+  &quot;parameters&quot;: {
+    &quot;arm-1&quot;: [
+      14.333333333333332,
+      7.666666666666668,
+      0
+    ],
+    &quot;arm-2&quot;: [
+      1.0,
+      21.0,
+      0
+    ],
+    &quot;arm-3&quot;: [
+      14.333333333333332,
+      7.666666666666668,
+      0
+    ],
+    &quot;arm-4&quot;: [
+      14.333333333333332,
+      7.666666666666668,
+      0
+    ],
+    &quot;arm-5&quot;: [
+      7.666666666666666,
+      14.333333333333336,
+      0
+    ],
+    &quot;root&quot;: [
+      1.0,
+      6.0,
+      5
+    ]
+  },
+  &quot;priorities&quot;: {}
+}</pre></details><details><summary>Exact prompt and failure feedback</summary><pre>Write a complete Python 3 program using only the standard library.
+Read from standard input and write only the required output to standard output.
+Return one Python code block containing the complete program.
+
+Problem:
+Imagine a city with n horizontal streets crossing m vertical streets, forming an (n - 1) × (m - 1) grid. In order to increase the traffic flow, mayor of the city has decided to make each street one way. This means in each horizontal street, the traffic moves only from west to east or only from east to west. Also, traffic moves only from north to south or only from south to north in each vertical street. It is possible to enter a horizontal street from a vertical street, or vice versa, at their intersection.
+
+ [Image] 
+
+The mayor has received some street direction patterns. Your task is to check whether it is possible to reach any junction from any other junction in the proposed street direction pattern.
+
+
+-----Input-----
+
+The first line of input contains two integers n and m, (2 ≤ n, m ≤ 20), denoting the number of horizontal streets and the number of vertical streets.
+
+The second line contains a string of length n, made of characters &#x27;&lt;&#x27; and &#x27;&gt;&#x27;, denoting direction of each horizontal street. If the i-th character is equal to &#x27;&lt;&#x27;, the street is directed from east to west otherwise, the street is directed from west to east. Streets are listed in order from north to south.
+
+The third line contains a string of length m, made of characters &#x27;^&#x27; and &#x27;v&#x27;, denoting direction of each vertical street. If the i-th character is equal to &#x27;^&#x27;, the street is directed from south to north, otherwise the street is directed from north to south. Streets are listed in order from west to east.
+
+
+-----Output-----
+
+If the given pattern meets the mayor&#x27;s criteria, print a single line containing &quot;YES&quot;, otherwise print a single line containing &quot;NO&quot;.
+
+
+-----Examples-----
+Input
+3 3
+&gt;&lt;&gt;
+v^v
+
+Output
+NO
+
+Input
+4 6
+&lt;&gt;&lt;&gt;
+v^v^v^
+
+Output
+YES
+
+
+
+-----Note-----
+
+The figure above shows street directions in the second sample test case.</pre></details><details><summary>Resource ledger</summary><pre>{
+  &quot;external_spend_usd&quot;: 0.0,
+  &quot;http_attempts&quot;: 6,
+  &quot;inference_attempts&quot;: 6,
+  &quot;judge_seconds&quot;: 22.170999999987544,
+  &quot;model_seconds&quot;: 50.56300000000192,
+  &quot;orchestration_seconds&quot;: 1.2179999999934807,
+  &quot;output_tokens&quot;: 1416,
+  &quot;policy_steps&quot;: 6,
+  &quot;prompt_tokens&quot;: 2850,
+  &quot;reservations&quot;: 0,
+  &quot;schema_version&quot;: 1,
+  &quot;unknown_usage&quot;: 0,
+  &quot;usable_completions&quot;: 5
+}</pre></details></details><details open><summary>root → arm-7: repair h=0.667, depth 1</summary><p>Estimated tokens 784.0; actual 713; cumulative 4979; parent α,β after: [1.0, 8.0]</p><pre>def can_reach_all(n, m, horizontal, vertical):
+    # Check horizontal streets
+    for i in range(n):
+        if horizontal[i] == &#x27;&lt;&#x27;:
+            if i &gt; 0 and horizontal[i-1] != &#x27;&gt;&#x27;:
+                return False
+        else:
+            if i &gt; 0 and horizontal[i-1] != &#x27;&lt;&#x27;:
+                return False
+    
+    # Check vertical streets
+    for i in range(m):
+        if vertical[i] == &#x27;^&#x27;:
+            if i &gt; 0 and vertical[i-1] != &#x27;v&#x27;:
+                return False
+        else:
+            if i &gt; 0 and vertical[i-1] != &#x27;^&#x27;:
+                return False
+    
+    return True
+
+def main():
+    import sys
+    input = sys.stdin.read
+    data = input().split()
+    
+    n = int(data[0])
+    m = int(data[1])
+    horizontal = data[2]
+    vertical = data[3]
+    
+    if can_reach_all(n, m, horizontal, vertical):
+        print(&quot;YES&quot;)
+    else:
+        print(&quot;NO&quot;)
+
+if __name__ == &quot;__main__&quot;:
+    main()</pre><details><summary>Selection draws, priorities and priors</summary><pre>{
+  &quot;chosen&quot;: &quot;root&quot;,
+  &quot;draws&quot;: {},
+  &quot;estimates&quot;: {
+    &quot;arm-1&quot;: 1031.0125787995987,
+    &quot;arm-2&quot;: 847.1852933111561,
+    &quot;arm-3&quot;: 1038.3467433428957,
+    &quot;arm-4&quot;: 979.9100129495298,
+    &quot;arm-5&quot;: 1152.3811726935128,
+    &quot;arm-6&quot;: 1001.2027487203918,
+    &quot;root&quot;: 784.0168438575985
+  },
+  &quot;parameters&quot;: {
+    &quot;arm-1&quot;: [
+      14.333333333333332,
+      7.666666666666668,
+      0
+    ],
+    &quot;arm-2&quot;: [
+      1.0,
+      21.0,
+      0
+    ],
+    &quot;arm-3&quot;: [
+      14.333333333333332,
+      7.666666666666668,
+      0
+    ],
+    &quot;arm-4&quot;: [
+      14.333333333333332,
+      7.666666666666668,
+      0
+    ],
+    &quot;arm-5&quot;: [
+      7.666666666666666,
+      14.333333333333336,
+      0
+    ],
+    &quot;arm-6&quot;: [
+      14.333333333333332,
+      7.666666666666668,
+      0
+    ],
+    &quot;root&quot;: [
+      1.0,
+      7.0,
+      6
+    ]
+  },
+  &quot;priorities&quot;: {}
+}</pre></details><details><summary>Exact prompt and failure feedback</summary><pre>Write a complete Python 3 program using only the standard library.
+Read from standard input and write only the required output to standard output.
+Return one Python code block containing the complete program.
+
+Problem:
+Imagine a city with n horizontal streets crossing m vertical streets, forming an (n - 1) × (m - 1) grid. In order to increase the traffic flow, mayor of the city has decided to make each street one way. This means in each horizontal street, the traffic moves only from west to east or only from east to west. Also, traffic moves only from north to south or only from south to north in each vertical street. It is possible to enter a horizontal street from a vertical street, or vice versa, at their intersection.
+
+ [Image] 
+
+The mayor has received some street direction patterns. Your task is to check whether it is possible to reach any junction from any other junction in the proposed street direction pattern.
+
+
+-----Input-----
+
+The first line of input contains two integers n and m, (2 ≤ n, m ≤ 20), denoting the number of horizontal streets and the number of vertical streets.
+
+The second line contains a string of length n, made of characters &#x27;&lt;&#x27; and &#x27;&gt;&#x27;, denoting direction of each horizontal street. If the i-th character is equal to &#x27;&lt;&#x27;, the street is directed from east to west otherwise, the street is directed from west to east. Streets are listed in order from north to south.
+
+The third line contains a string of length m, made of characters &#x27;^&#x27; and &#x27;v&#x27;, denoting direction of each vertical street. If the i-th character is equal to &#x27;^&#x27;, the street is directed from south to north, otherwise the street is directed from north to south. Streets are listed in order from west to east.
+
+
+-----Output-----
+
+If the given pattern meets the mayor&#x27;s criteria, print a single line containing &quot;YES&quot;, otherwise print a single line containing &quot;NO&quot;.
+
+
+-----Examples-----
+Input
+3 3
+&gt;&lt;&gt;
+v^v
+
+Output
+NO
+
+Input
+4 6
+&lt;&gt;&lt;&gt;
+v^v^v^
+
+Output
+YES
+
+
+
+-----Note-----
+
+The figure above shows street directions in the second sample test case.</pre></details><details><summary>Resource ledger</summary><pre>{
+  &quot;external_spend_usd&quot;: 0.0,
+  &quot;http_attempts&quot;: 7,
+  &quot;inference_attempts&quot;: 7,
+  &quot;judge_seconds&quot;: 26.15499999999156,
+  &quot;model_seconds&quot;: 55.65700000000652,
+  &quot;orchestration_seconds&quot;: 1.404999999984284,
+  &quot;output_tokens&quot;: 1654,
+  &quot;policy_steps&quot;: 7,
+  &quot;prompt_tokens&quot;: 3325,
+  &quot;reservations&quot;: 0,
+  &quot;schema_version&quot;: 1,
+  &quot;unknown_usage&quot;: 0,
+  &quot;usable_completions&quot;: 6
+}</pre></details></details><details open><summary>root → arm-8: repair h=0.667, depth 1</summary><p>Estimated tokens 769.8; actual 679; cumulative 5658; parent α,β after: [1.0, 9.0]</p><pre>import sys
+
+def can_reach_all_junctions(n, m, horiz_dirs, vert_dirs):
+    # Check if horizontal directions are consistent
+    for i in range(n - 1):
+        if horiz_dirs[i] != horiz_dirs[i + 1]:
+            return False
+    
+    # Check if vertical directions are consistent
+    for j in range(m - 1):
+        if vert_dirs[j] != vert_dirs[j + 1]:
+            return False
+    
+    return True
+
+def main():
+    # Read input from standard input
+    n, m = map(int, input().split())
+    horiz_dirs = input().strip()
+    vert_dirs = input().strip()
+    
+    # Check if the directions allow reaching all junctions
+    if can_reach_all_junctions(n, m, horiz_dirs, vert_dirs):
+        print(&quot;YES&quot;)
+    else:
+        print(&quot;NO&quot;)
+
+if __name__ == &quot;__main__&quot;:
+    main()</pre><details><summary>Selection draws, priorities and priors</summary><pre>{
+  &quot;chosen&quot;: &quot;root&quot;,
+  &quot;draws&quot;: {},
+  &quot;estimates&quot;: {
+    &quot;arm-1&quot;: 1015.8435845327436,
+    &quot;arm-2&quot;: 832.7144919995586,
+    &quot;arm-3&quot;: 1023.1498932438489,
+    &quot;arm-4&quot;: 964.9351109327848,
+    &quot;arm-5&quot;: 1128.2664637326525,
+    &quot;arm-6&quot;: 986.1469749327676,
+    &quot;arm-7&quot;: 1040.3550718216127,
+    &quot;root&quot;: 769.7859621329429
+  },
+  &quot;parameters&quot;: {
+    &quot;arm-1&quot;: [
+      14.333333333333332,
+      7.666666666666668,
+      0
+    ],
+    &quot;arm-2&quot;: [
+      1.0,
+      21.0,
+      0
+    ],
+    &quot;arm-3&quot;: [
+      14.333333333333332,
+      7.666666666666668,
+      0
+    ],
+    &quot;arm-4&quot;: [
+      14.333333333333332,
+      7.666666666666668,
+      0
+    ],
+    &quot;arm-5&quot;: [
+      7.666666666666666,
+      14.333333333333336,
+      0
+    ],
+    &quot;arm-6&quot;: [
+      14.333333333333332,
+      7.666666666666668,
+      0
+    ],
+    &quot;arm-7&quot;: [
+      14.333333333333332,
+      7.666666666666668,
+      0
+    ],
+    &quot;root&quot;: [
+      1.0,
+      8.0,
+      7
+    ]
+  },
+  &quot;priorities&quot;: {}
+}</pre></details><details><summary>Exact prompt and failure feedback</summary><pre>Write a complete Python 3 program using only the standard library.
+Read from standard input and write only the required output to standard output.
+Return one Python code block containing the complete program.
+
+Problem:
+Imagine a city with n horizontal streets crossing m vertical streets, forming an (n - 1) × (m - 1) grid. In order to increase the traffic flow, mayor of the city has decided to make each street one way. This means in each horizontal street, the traffic moves only from west to east or only from east to west. Also, traffic moves only from north to south or only from south to north in each vertical street. It is possible to enter a horizontal street from a vertical street, or vice versa, at their intersection.
+
+ [Image] 
+
+The mayor has received some street direction patterns. Your task is to check whether it is possible to reach any junction from any other junction in the proposed street direction pattern.
+
+
+-----Input-----
+
+The first line of input contains two integers n and m, (2 ≤ n, m ≤ 20), denoting the number of horizontal streets and the number of vertical streets.
+
+The second line contains a string of length n, made of characters &#x27;&lt;&#x27; and &#x27;&gt;&#x27;, denoting direction of each horizontal street. If the i-th character is equal to &#x27;&lt;&#x27;, the street is directed from east to west otherwise, the street is directed from west to east. Streets are listed in order from north to south.
+
+The third line contains a string of length m, made of characters &#x27;^&#x27; and &#x27;v&#x27;, denoting direction of each vertical street. If the i-th character is equal to &#x27;^&#x27;, the street is directed from south to north, otherwise the street is directed from north to south. Streets are listed in order from west to east.
+
+
+-----Output-----
+
+If the given pattern meets the mayor&#x27;s criteria, print a single line containing &quot;YES&quot;, otherwise print a single line containing &quot;NO&quot;.
+
+
+-----Examples-----
+Input
+3 3
+&gt;&lt;&gt;
+v^v
+
+Output
+NO
+
+Input
+4 6
+&lt;&gt;&lt;&gt;
+v^v^v^
+
+Output
+YES
+
+
+
+-----Note-----
+
+The figure above shows street directions in the second sample test case.</pre></details><details><summary>Resource ledger</summary><pre>{
+  &quot;external_spend_usd&quot;: 0.0,
+  &quot;http_attempts&quot;: 8,
+  &quot;inference_attempts&quot;: 8,
+  &quot;judge_seconds&quot;: 30.091999999996915,
+  &quot;model_seconds&quot;: 60.37600000000384,
+  &quot;orchestration_seconds&quot;: 1.6079999999856227,
+  &quot;output_tokens&quot;: 1858,
+  &quot;policy_steps&quot;: 8,
+  &quot;prompt_tokens&quot;: 3800,
+  &quot;reservations&quot;: 0,
+  &quot;schema_version&quot;: 1,
+  &quot;unknown_usage&quot;: 0,
+  &quot;usable_completions&quot;: 7
+}</pre></details></details><h2>Post-search hidden evaluation annotations</h2><p>Evaluation version c4a81f75b56a5c703a2d436ae2b26588ba790d0abda2d248b15078caf8e62282</p><pre>[
+  {
+    &quot;axis&quot;: &quot;calls&quot;,
+    &quot;budget&quot;: 1,
+    &quot;campaign_trial_calls&quot;: 8,
+    &quot;campaign_trial_tokens&quot;: 5658,
+    &quot;censored&quot;: false,
+    &quot;code_hash&quot;: &quot;9589614f48cc282d4f6ff5aa6306d1ce36c0b4ad43f17dfc46f7d3fdac465f68&quot;,
+    &quot;hidden_fraction&quot;: 0.6,
+    &quot;method&quot;: &quot;resample&quot;,
+    &quot;prefix_calls&quot;: 1,
+    &quot;prefix_tokens&quot;: 696,
+    &quot;seed&quot;: 0,
+    &quot;solved&quot;: false,
+    &quot;task_id&quot;: &quot;test/0173&quot;,
+    &quot;trial_id&quot;: &quot;ff9154aa57b59bc884281cdd&quot;,
+    &quot;visible_fraction&quot;: 0.6666666666666666,
+    &quot;visible_success_stop&quot;: false
+  },
+  {
+    &quot;axis&quot;: &quot;calls&quot;,
+    &quot;budget&quot;: 2,
+    &quot;campaign_trial_calls&quot;: 8,
+    &quot;campaign_trial_tokens&quot;: 5658,
+    &quot;censored&quot;: false,
+    &quot;code_hash&quot;: &quot;9589614f48cc282d4f6ff5aa6306d1ce36c0b4ad43f17dfc46f7d3fdac465f68&quot;,
+    &quot;hidden_fraction&quot;: 0.6,
+    &quot;method&quot;: &quot;resample&quot;,
+    &quot;prefix_calls&quot;: 2,
+    &quot;prefix_tokens&quot;: 1536,
+    &quot;seed&quot;: 0,
+    &quot;solved&quot;: false,
+    &quot;task_id&quot;: &quot;test/0173&quot;,
+    &quot;trial_id&quot;: &quot;ff9154aa57b59bc884281cdd&quot;,
+    &quot;visible_fraction&quot;: 0.6666666666666666,
+    &quot;visible_success_stop&quot;: false
+  },
+  {
+    &quot;axis&quot;: &quot;calls&quot;,
+    &quot;budget&quot;: 3,
+    &quot;campaign_trial_calls&quot;: 8,
+    &quot;campaign_trial_tokens&quot;: 5658,
+    &quot;censored&quot;: false,
+    &quot;code_hash&quot;: &quot;9589614f48cc282d4f6ff5aa6306d1ce36c0b4ad43f17dfc46f7d3fdac465f68&quot;,
+    &quot;hidden_fraction&quot;: 0.6,
+    &quot;method&quot;: &quot;resample&quot;,
+    &quot;prefix_calls&quot;: 3,
+    &quot;prefix_tokens&quot;: 2251,
+    &quot;seed&quot;: 0,
+    &quot;solved&quot;: false,
+    &quot;task_id&quot;: &quot;test/0173&quot;,
+    &quot;trial_id&quot;: &quot;ff9154aa57b59bc884281cdd&quot;,
+    &quot;visible_fraction&quot;: 0.6666666666666666,
+    &quot;visible_success_stop&quot;: false
+  },
+  {
+    &quot;axis&quot;: &quot;calls&quot;,
+    &quot;budget&quot;: 4,
+    &quot;campaign_trial_calls&quot;: 8,
+    &quot;campaign_trial_tokens&quot;: 5658,
+    &quot;censored&quot;: false,
+    &quot;code_hash&quot;: &quot;9589614f48cc282d4f6ff5aa6306d1ce36c0b4ad43f17dfc46f7d3fdac465f68&quot;,
+    &quot;hidden_fraction&quot;: 0.6,
+    &quot;method&quot;: &quot;resample&quot;,
+    &quot;prefix_calls&quot;: 4,
+    &quot;prefix_tokens&quot;: 2869,
+    &quot;seed&quot;: 0,
+    &quot;solved&quot;: false,
+    &quot;task_id&quot;: &quot;test/0173&quot;,
+    &quot;trial_id&quot;: &quot;ff9154aa57b59bc884281cdd&quot;,
+    &quot;visible_fraction&quot;: 0.6666666666666666,
+    &quot;visible_success_stop&quot;: false
+  },
+  {
+    &quot;axis&quot;: &quot;calls&quot;,
+    &quot;budget&quot;: 5,
+    &quot;campaign_trial_calls&quot;: 8,
+    &quot;campaign_trial_tokens&quot;: 5658,
+    &quot;censored&quot;: false,
+    &quot;code_hash&quot;: &quot;9589614f48cc282d4f6ff5aa6306d1ce36c0b4ad43f17dfc46f7d3fdac465f68&quot;,
+    &quot;hidden_fraction&quot;: 0.6,
+    &quot;method&quot;: &quot;resample&quot;,
+    &quot;prefix_calls&quot;: 5,
+    &quot;prefix_tokens&quot;: 3617,
+    &quot;seed&quot;: 0,
+    &quot;solved&quot;: false,
+    &quot;task_id&quot;: &quot;test/0173&quot;,
+    &quot;trial_id&quot;: &quot;ff9154aa57b59bc884281cdd&quot;,
+    &quot;visible_fraction&quot;: 0.6666666666666666,
+    &quot;visible_success_stop&quot;: false
+  },
+  {
+    &quot;axis&quot;: &quot;calls&quot;,
+    &quot;budget&quot;: 6,
+    &quot;campaign_trial_calls&quot;: 8,
+    &quot;campaign_trial_tokens&quot;: 5658,
+    &quot;censored&quot;: false,
+    &quot;code_hash&quot;: &quot;9589614f48cc282d4f6ff5aa6306d1ce36c0b4ad43f17dfc46f7d3fdac465f68&quot;,
+    &quot;hidden_fraction&quot;: 0.6,
+    &quot;method&quot;: &quot;resample&quot;,
+    &quot;prefix_calls&quot;: 6,
+    &quot;prefix_tokens&quot;: 4266,
+    &quot;seed&quot;: 0,
+    &quot;solved&quot;: false,
+    &quot;task_id&quot;: &quot;test/0173&quot;,
+    &quot;trial_id&quot;: &quot;ff9154aa57b59bc884281cdd&quot;,
+    &quot;visible_fraction&quot;: 0.6666666666666666,
+    &quot;visible_success_stop&quot;: false
+  },
+  {
+    &quot;axis&quot;: &quot;calls&quot;,
+    &quot;budget&quot;: 7,
+    &quot;campaign_trial_calls&quot;: 8,
+    &quot;campaign_trial_tokens&quot;: 5658,
+    &quot;censored&quot;: false,
+    &quot;code_hash&quot;: &quot;9589614f48cc282d4f6ff5aa6306d1ce36c0b4ad43f17dfc46f7d3fdac465f68&quot;,
+    &quot;hidden_fraction&quot;: 0.6,
+    &quot;method&quot;: &quot;resample&quot;,
+    &quot;prefix_calls&quot;: 7,
+    &quot;prefix_tokens&quot;: 4979,
+    &quot;seed&quot;: 0,
+    &quot;solved&quot;: false,
+    &quot;task_id&quot;: &quot;test/0173&quot;,
+    &quot;trial_id&quot;: &quot;ff9154aa57b59bc884281cdd&quot;,
+    &quot;visible_fraction&quot;: 0.6666666666666666,
+    &quot;visible_success_stop&quot;: false
+  },
+  {
+    &quot;axis&quot;: &quot;calls&quot;,
+    &quot;budget&quot;: 8,
+    &quot;campaign_trial_calls&quot;: 8,
+    &quot;campaign_trial_tokens&quot;: 5658,
+    &quot;censored&quot;: false,
+    &quot;code_hash&quot;: &quot;9589614f48cc282d4f6ff5aa6306d1ce36c0b4ad43f17dfc46f7d3fdac465f68&quot;,
+    &quot;hidden_fraction&quot;: 0.6,
+    &quot;method&quot;: &quot;resample&quot;,
+    &quot;prefix_calls&quot;: 8,
+    &quot;prefix_tokens&quot;: 5658,
+    &quot;seed&quot;: 0,
+    &quot;solved&quot;: false,
+    &quot;task_id&quot;: &quot;test/0173&quot;,
+    &quot;trial_id&quot;: &quot;ff9154aa57b59bc884281cdd&quot;,
+    &quot;visible_fraction&quot;: 0.6666666666666666,
+    &quot;visible_success_stop&quot;: false
+  },
+  {
+    &quot;axis&quot;: &quot;tokens&quot;,
+    &quot;budget&quot;: 1024,
+    &quot;campaign_trial_calls&quot;: 8,
+    &quot;campaign_trial_tokens&quot;: 5658,
+    &quot;censored&quot;: false,
+    &quot;code_hash&quot;: &quot;9589614f48cc282d4f6ff5aa6306d1ce36c0b4ad43f17dfc46f7d3fdac465f68&quot;,
+    &quot;hidden_fraction&quot;: 0.6,
+    &quot;method&quot;: &quot;resample&quot;,
+    &quot;prefix_calls&quot;: 1,
+    &quot;prefix_tokens&quot;: 696,
+    &quot;seed&quot;: 0,
+    &quot;solved&quot;: false,
+    &quot;task_id&quot;: &quot;test/0173&quot;,
+    &quot;trial_id&quot;: &quot;ff9154aa57b59bc884281cdd&quot;,
+    &quot;visible_fraction&quot;: 0.6666666666666666,
+    &quot;visible_success_stop&quot;: false
+  },
+  {
+    &quot;axis&quot;: &quot;tokens&quot;,
+    &quot;budget&quot;: 2048,
+    &quot;campaign_trial_calls&quot;: 8,
+    &quot;campaign_trial_tokens&quot;: 5658,
+    &quot;censored&quot;: false,
+    &quot;code_hash&quot;: &quot;9589614f48cc282d4f6ff5aa6306d1ce36c0b4ad43f17dfc46f7d3fdac465f68&quot;,
+    &quot;hidden_fraction&quot;: 0.6,
+    &quot;method&quot;: &quot;resample&quot;,
+    &quot;prefix_calls&quot;: 2,
+    &quot;prefix_tokens&quot;: 1536,
+    &quot;seed&quot;: 0,
+    &quot;solved&quot;: false,
+    &quot;task_id&quot;: &quot;test/0173&quot;,
+    &quot;trial_id&quot;: &quot;ff9154aa57b59bc884281cdd&quot;,
+    &quot;visible_fraction&quot;: 0.6666666666666666,
+    &quot;visible_success_stop&quot;: false
+  }
+]</pre></body></html>

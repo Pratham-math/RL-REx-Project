@@ -1,0 +1,12 @@
+def is_divisible_by_64(binary_string):
+    for i in range(len(binary_string)):
+        for j in range(i + 1, len(binary_string) + 1):
+            remaining_string = binary_string[:i] + binary_string[j:]
+            if remaining_string == '' or remaining_string[0] == '0':
+                continue
+            if int(remaining_string, 2) % 64 == 0:
+                return "yes"
+    return "no"
+
+binary_string = input().strip()
+print(is_divisible_by_64(binary_string))

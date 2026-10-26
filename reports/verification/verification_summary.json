@@ -1,0 +1,32 @@
+{
+  "offline": {
+    "tests": 79,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "docker": {
+    "tests": 15,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "live": {
+    "tests": 1,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 1
+  },
+  "starter": {
+    "tests": 11,
+    "passed": 11,
+    "evidence": "starter.stderr.txt"
+  },
+  "synthetic_cli": {
+    "commands": 8,
+    "all_passed": true,
+    "label": "synthetic, not empirical"
+  },
+  "external_inference_spend_usd": 0,
+  "real_model_calls": 0
+}

@@ -1,0 +1,24 @@
+name: checks
+on: [push, pull_request]
+jobs:
+  offline:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: astral-sh/setup-uv@v6
+        with:
+          version: "0.8.22"
+      - run: uv sync --frozen --extra dev
+      - run: uv run ruff check src tests
+      - run: uv run mypy src/rexbench
+      - run: uv run pytest -m 'not docker and not live' --junitxml=reports/offline.xml
+  docker:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: astral-sh/setup-uv@v6
+        with:
+          version: "0.8.22"
+      - run: uv sync --frozen --extra dev
+      - run: docker build -t rexbench-runner:local -f docker/Dockerfile .
+      - run: uv run pytest -m docker --junitxml=reports/docker.xml

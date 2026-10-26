@@ -1,0 +1,71 @@
+[
+  {
+    "name": "ruff",
+    "command": [
+      "-m",
+      "ruff",
+      "check",
+      "src",
+      "tests",
+      "tools"
+    ],
+    "returncode": 0
+  },
+  {
+    "name": "mypy",
+    "command": [
+      "-m",
+      "mypy",
+      "src/rexbench"
+    ],
+    "returncode": 0
+  },
+  {
+    "name": "offline",
+    "command": [
+      "-m",
+      "pytest",
+      "-m",
+      "not docker and not live",
+      "-q",
+      "--junitxml=reports/verification/offline.xml"
+    ],
+    "returncode": 0
+  },
+  {
+    "name": "integration_availability",
+    "command": [
+      "-m",
+      "pytest",
+      "-m",
+      "docker or live",
+      "-q",
+      "-rs",
+      "--junitxml=reports/verification/integration_availability.xml"
+    ],
+    "returncode": 0
+  },
+  {
+    "name": "starter",
+    "command": [
+      "python",
+      "-m",
+      "unittest",
+      "test_project",
+      "-v"
+    ],
+    "returncode": 1
+  },
+  {
+    "name": "starter_with_recorded_environment",
+    "command": [
+      ".venv/Scripts/python.exe",
+      "-m",
+      "unittest",
+      "test_project",
+      "-v"
+    ],
+    "returncode": 0,
+    "note": "Earlier rerun via ambiguous python executable lacked matplotlib; retained its stderr separately."
+  }
+]

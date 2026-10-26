@@ -1,0 +1,245 @@
+<!doctype html><html><head><meta charset='utf-8'><meta http-equiv='Content-Security-Policy' content="default-src 'none'; style-src 'unsafe-inline'"><title>REx recorded search</title><style>body{font:16px system-ui;max-width:1100px;margin:2rem auto;padding:1rem;background:#f4f6f8;color:#172b3a}pre{white-space:pre-wrap;overflow-wrap:anywhere;background:white;padding:1rem;border:1px solid #ccd}details{margin:1rem 0;padding:.8rem;border:1px solid #aaa}table{border-collapse:collapse}td,th{border:1px solid #aaa;padding:.4rem}</style></head><body><h1>SYNTHETIC FIXTURE TRACE — no empirical model result</h1><p>synthetic-sum · resample · seed 0</p><h2>Problem</h2><pre>Read two integers and print their sum.</pre><p>Nodes follow generation order. Each parent → child is a recorded refinement edge. Hidden tests did not select these returns.</p><details open><summary>root → arm-1: repair h=0.000, depth 1</summary><p>Estimated tokens 576.2; actual 60; cumulative 60; parent α,β after: [1.0, 2.0]</p><pre>[INVALID COMPLETION]</pre><details><summary>Selection draws, priorities and priors</summary><pre>{
+  &quot;chosen&quot;: &quot;root&quot;,
+  &quot;draws&quot;: {},
+  &quot;estimates&quot;: {
+    &quot;root&quot;: 576.25
+  },
+  &quot;parameters&quot;: {
+    &quot;root&quot;: [
+      1,
+      1,
+      0
+    ]
+  },
+  &quot;priorities&quot;: {}
+}</pre></details><details><summary>Exact prompt and failure feedback</summary><pre>Write a complete Python 3 program using only the standard library.
+Read from standard input and write only the required output to standard output.
+Return one Python code block containing the complete program.
+
+Problem:
+Read two integers and print their sum.</pre></details><details><summary>Resource ledger</summary><pre>{
+  &quot;external_spend_usd&quot;: 0.0,
+  &quot;http_attempts&quot;: 1,
+  &quot;inference_attempts&quot;: 1,
+  &quot;judge_seconds&quot;: 0.0,
+  &quot;model_seconds&quot;: 0.01599999999962165,
+  &quot;orchestration_seconds&quot;: 0.0,
+  &quot;output_tokens&quot;: 20,
+  &quot;policy_steps&quot;: 1,
+  &quot;prompt_tokens&quot;: 40,
+  &quot;reservations&quot;: 0,
+  &quot;schema_version&quot;: 1,
+  &quot;unknown_usage&quot;: 0,
+  &quot;usable_completions&quot;: 0
+}</pre></details></details><details open><summary>root → arm-2: repair h=0.333, depth 1</summary><p>Estimated tokens 470.9; actual 60; cumulative 120; parent α,β after: [1.0, 3.0]</p><pre>print(0)</pre><details><summary>Selection draws, priorities and priors</summary><pre>{
+  &quot;chosen&quot;: &quot;root&quot;,
+  &quot;draws&quot;: {},
+  &quot;estimates&quot;: {
+    &quot;arm-1&quot;: 527.3123745819398,
+    &quot;root&quot;: 470.9021181716834
+  },
+  &quot;parameters&quot;: {
+    &quot;arm-1&quot;: [
+      1.0,
+      21.0,
+      0
+    ],
+    &quot;root&quot;: [
+      1.0,
+      2.0,
+      1
+    ]
+  },
+  &quot;priorities&quot;: {}
+}</pre></details><details><summary>Exact prompt and failure feedback</summary><pre>Write a complete Python 3 program using only the standard library.
+Read from standard input and write only the required output to standard output.
+Return one Python code block containing the complete program.
+
+Problem:
+Read two integers and print their sum.</pre></details><details><summary>Resource ledger</summary><pre>{
+  &quot;external_spend_usd&quot;: 0.0,
+  &quot;http_attempts&quot;: 2,
+  &quot;inference_attempts&quot;: 2,
+  &quot;judge_seconds&quot;: 0.0,
+  &quot;model_seconds&quot;: 0.04700000000048021,
+  &quot;orchestration_seconds&quot;: 0.0,
+  &quot;output_tokens&quot;: 40,
+  &quot;policy_steps&quot;: 2,
+  &quot;prompt_tokens&quot;: 80,
+  &quot;reservations&quot;: 0,
+  &quot;schema_version&quot;: 1,
+  &quot;unknown_usage&quot;: 0,
+  &quot;usable_completions&quot;: 1
+}</pre></details></details><details open><summary>root → arm-3: repair h=1.000, depth 1</summary><p>Estimated tokens 387.6; actual 90; cumulative 210; parent α,β after: [1.0, 3.0]</p><pre>print(sum(map(int,input().split())))</pre><details><summary>Selection draws, priorities and priors</summary><pre>{
+  &quot;chosen&quot;: &quot;root&quot;,
+  &quot;draws&quot;: {},
+  &quot;estimates&quot;: {
+    &quot;arm-1&quot;: 439.5383213626103,
+    &quot;arm-2&quot;: 437.48619741432384,
+    &quot;root&quot;: 387.6195854709625
+  },
+  &quot;parameters&quot;: {
+    &quot;arm-1&quot;: [
+      1.0,
+      21.0,
+      0
+    ],
+    &quot;arm-2&quot;: [
+      7.666666666666666,
+      14.333333333333336,
+      0
+    ],
+    &quot;root&quot;: [
+      1.0,
+      3.0,
+      2
+    ]
+  },
+  &quot;priorities&quot;: {}
+}</pre></details><details><summary>Exact prompt and failure feedback</summary><pre>Write a complete Python 3 program using only the standard library.
+Read from standard input and write only the required output to standard output.
+Return one Python code block containing the complete program.
+
+Problem:
+Read two integers and print their sum.</pre></details><details><summary>Resource ledger</summary><pre>{
+  &quot;external_spend_usd&quot;: 0.0,
+  &quot;http_attempts&quot;: 3,
+  &quot;inference_attempts&quot;: 3,
+  &quot;judge_seconds&quot;: 0.0,
+  &quot;model_seconds&quot;: 0.09400000000096043,
+  &quot;orchestration_seconds&quot;: 0.0,
+  &quot;output_tokens&quot;: 70,
+  &quot;policy_steps&quot;: 3,
+  &quot;prompt_tokens&quot;: 140,
+  &quot;reservations&quot;: 0,
+  &quot;schema_version&quot;: 1,
+  &quot;unknown_usage&quot;: 0,
+  &quot;usable_completions&quot;: 2
+}</pre></details></details><h2>Post-search hidden evaluation annotations</h2><pre>[
+  {
+    &quot;axis&quot;: &quot;calls&quot;,
+    &quot;budget&quot;: 1,
+    &quot;campaign_trial_calls&quot;: 3,
+    &quot;campaign_trial_tokens&quot;: 210,
+    &quot;censored&quot;: false,
+    &quot;code_hash&quot;: null,
+    &quot;hidden_fraction&quot;: 0.0,
+    &quot;method&quot;: &quot;resample&quot;,
+    &quot;prefix_calls&quot;: 1,
+    &quot;prefix_tokens&quot;: 60,
+    &quot;seed&quot;: 0,
+    &quot;solved&quot;: false,
+    &quot;task_id&quot;: &quot;synthetic-sum&quot;,
+    &quot;trial_id&quot;: &quot;31fef3bc3752b0c022d12091&quot;,
+    &quot;visible_fraction&quot;: 0.0,
+    &quot;visible_success_stop&quot;: true
+  },
+  {
+    &quot;axis&quot;: &quot;calls&quot;,
+    &quot;budget&quot;: 2,
+    &quot;campaign_trial_calls&quot;: 3,
+    &quot;campaign_trial_tokens&quot;: 210,
+    &quot;censored&quot;: false,
+    &quot;code_hash&quot;: &quot;83886bbc5808db2ba6af44f6b236f39a741752dd47909a1b906a59a6d1adb0e0&quot;,
+    &quot;hidden_fraction&quot;: 0.0,
+    &quot;method&quot;: &quot;resample&quot;,
+    &quot;prefix_calls&quot;: 2,
+    &quot;prefix_tokens&quot;: 120,
+    &quot;seed&quot;: 0,
+    &quot;solved&quot;: false,
+    &quot;task_id&quot;: &quot;synthetic-sum&quot;,
+    &quot;trial_id&quot;: &quot;31fef3bc3752b0c022d12091&quot;,
+    &quot;visible_fraction&quot;: 0.3333333333333333,
+    &quot;visible_success_stop&quot;: true
+  },
+  {
+    &quot;axis&quot;: &quot;calls&quot;,
+    &quot;budget&quot;: 3,
+    &quot;campaign_trial_calls&quot;: 3,
+    &quot;campaign_trial_tokens&quot;: 210,
+    &quot;censored&quot;: false,
+    &quot;code_hash&quot;: &quot;f5fd7c191c13e9865867511719e2164c82a8bc132f67696449be642372c48996&quot;,
+    &quot;hidden_fraction&quot;: 1.0,
+    &quot;method&quot;: &quot;resample&quot;,
+    &quot;prefix_calls&quot;: 3,
+    &quot;prefix_tokens&quot;: 210,
+    &quot;seed&quot;: 0,
+    &quot;solved&quot;: true,
+    &quot;task_id&quot;: &quot;synthetic-sum&quot;,
+    &quot;trial_id&quot;: &quot;31fef3bc3752b0c022d12091&quot;,
+    &quot;visible_fraction&quot;: 1.0,
+    &quot;visible_success_stop&quot;: true
+  },
+  {
+    &quot;axis&quot;: &quot;calls&quot;,
+    &quot;budget&quot;: 4,
+    &quot;campaign_trial_calls&quot;: 3,
+    &quot;campaign_trial_tokens&quot;: 210,
+    &quot;censored&quot;: false,
+    &quot;code_hash&quot;: &quot;f5fd7c191c13e9865867511719e2164c82a8bc132f67696449be642372c48996&quot;,
+    &quot;hidden_fraction&quot;: 1.0,
+    &quot;method&quot;: &quot;resample&quot;,
+    &quot;prefix_calls&quot;: 3,
+    &quot;prefix_tokens&quot;: 210,
+    &quot;seed&quot;: 0,
+    &quot;solved&quot;: true,
+    &quot;task_id&quot;: &quot;synthetic-sum&quot;,
+    &quot;trial_id&quot;: &quot;31fef3bc3752b0c022d12091&quot;,
+    &quot;visible_fraction&quot;: 1.0,
+    &quot;visible_success_stop&quot;: true
+  },
+  {
+    &quot;axis&quot;: &quot;tokens&quot;,
+    &quot;budget&quot;: 50,
+    &quot;campaign_trial_calls&quot;: 3,
+    &quot;campaign_trial_tokens&quot;: 210,
+    &quot;censored&quot;: false,
+    &quot;code_hash&quot;: null,
+    &quot;hidden_fraction&quot;: 0.0,
+    &quot;method&quot;: &quot;resample&quot;,
+    &quot;prefix_calls&quot;: 0,
+    &quot;prefix_tokens&quot;: 0,
+    &quot;seed&quot;: 0,
+    &quot;solved&quot;: false,
+    &quot;task_id&quot;: &quot;synthetic-sum&quot;,
+    &quot;trial_id&quot;: &quot;31fef3bc3752b0c022d12091&quot;,
+    &quot;visible_fraction&quot;: 0.0,
+    &quot;visible_success_stop&quot;: true
+  },
+  {
+    &quot;axis&quot;: &quot;tokens&quot;,
+    &quot;budget&quot;: 100,
+    &quot;campaign_trial_calls&quot;: 3,
+    &quot;campaign_trial_tokens&quot;: 210,
+    &quot;censored&quot;: false,
+    &quot;code_hash&quot;: null,
+    &quot;hidden_fraction&quot;: 0.0,
+    &quot;method&quot;: &quot;resample&quot;,
+    &quot;prefix_calls&quot;: 1,
+    &quot;prefix_tokens&quot;: 60,
+    &quot;seed&quot;: 0,
+    &quot;solved&quot;: false,
+    &quot;task_id&quot;: &quot;synthetic-sum&quot;,
+    &quot;trial_id&quot;: &quot;31fef3bc3752b0c022d12091&quot;,
+    &quot;visible_fraction&quot;: 0.0,
+    &quot;visible_success_stop&quot;: true
+  },
+  {
+    &quot;axis&quot;: &quot;tokens&quot;,
+    &quot;budget&quot;: 200,
+    &quot;campaign_trial_calls&quot;: 3,
+    &quot;campaign_trial_tokens&quot;: 210,
+    &quot;censored&quot;: false,
+    &quot;code_hash&quot;: &quot;83886bbc5808db2ba6af44f6b236f39a741752dd47909a1b906a59a6d1adb0e0&quot;,
+    &quot;hidden_fraction&quot;: 0.0,
+    &quot;method&quot;: &quot;resample&quot;,
+    &quot;prefix_calls&quot;: 2,
+    &quot;prefix_tokens&quot;: 120,
+    &quot;seed&quot;: 0,
+    &quot;solved&quot;: false,
+    &quot;task_id&quot;: &quot;synthetic-sum&quot;,
+    &quot;trial_id&quot;: &quot;31fef3bc3752b0c022d12091&quot;,
+    &quot;visible_fraction&quot;: 0.3333333333333333,
+    &quot;visible_success_stop&quot;: true
+  }
+]</pre></body></html>

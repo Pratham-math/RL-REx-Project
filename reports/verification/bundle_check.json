@@ -1,0 +1,6 @@
+{
+  "archive_sha256": "cffaea5507d2cae55d90f174091407e1c1542b62cfbf8f3855260aeeed1022b2",
+  "entries_verified": 718,
+  "extracted_search_seal_verified": "2e9bf6a9b262894b94add98bb99dfa53740f9431181635d1f6ee0794374611dd",
+  "sqlite_backup": "standalone backup restored and logical seal verified"
+}

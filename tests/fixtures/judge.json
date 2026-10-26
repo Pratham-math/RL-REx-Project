@@ -1,0 +1,1 @@
+{"print(0)":{"default":"WRONG_ANSWER","repair-2":"PASS"},"print(sum(map(int,input().split())))":{"default":"PASS"}}

@@ -1,0 +1,1 @@
+Open index.html in a browser. No server, installation or internet connection is required. Keep the assets and evidence folders alongside the HTML files. The site contains real recorded pilot results; worked examples are labeled separately.

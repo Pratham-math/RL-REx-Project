@@ -1,0 +1,13 @@
+n, k = map(int, input().split())
+line = input().strip()
+
+# Find the positions of 'G' and 'T'
+grasshopper_pos = line.index('G')
+insect_pos = line.index('T')
+
+# Check if the distance between 'G' and 'T' is a multiple of k
+distance = abs(grasshopper_pos - insect_pos)
+if distance % k == 0:
+    print("YES")
+else:
+    print("NO")

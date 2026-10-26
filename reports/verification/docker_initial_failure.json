@@ -1,0 +1,10 @@
+{
+  "historical": true,
+  "recorded_from": "observed terminal output before correction",
+  "tests": 13,
+  "passed": 5,
+  "failed": 8,
+  "cause": "exec_inspect reported Running=false before asynchronous exec_start acknowledgement; premature container cleanup caused exit137",
+  "fix": "wait for acknowledged exec_start; preserve lifecycle status; regression tests/unit/test_docker_lifecycle.py",
+  "current_evidence": "docker.xml: 15 passed"
+}

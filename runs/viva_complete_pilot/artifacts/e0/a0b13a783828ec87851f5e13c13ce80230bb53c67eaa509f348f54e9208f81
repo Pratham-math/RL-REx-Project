@@ -1,0 +1,12 @@
+n, k = map(int, input().split())
+tabs = list(map(int, input().split()))
+
+max_diff = 0
+
+for b in range(n):
+    closed = [b + i * k for i in range(-n//k, (n-b)//k+1) if 1 <= b + i * k <= n]
+    remaining_test = sum(1 for i in range(n) if i not in closed and tabs[i] == 1)
+    remaining_social = sum(1 for i in range(n) if i not in closed and tabs[i] == -1)
+    max_diff = max(max_diff, abs(remaining_test - remaining_social))
+
+print(max_diff)

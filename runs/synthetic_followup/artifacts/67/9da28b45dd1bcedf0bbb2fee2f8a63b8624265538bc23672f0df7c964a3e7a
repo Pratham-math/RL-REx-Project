@@ -1,0 +1,1 @@
+{"backend_error":null,"finish_reason":"stop","finished":"2026-10-25T19:33:49.913047+00:00","input_tokens":40,"latency_seconds":0.0470000000022992,"output_tokens":20,"raw":{"input_tokens":40,"output_tokens":20,"text":""},"request_id":"6bb24bd14f89ef2cfdedd616:1","schema_version":1,"started":"2026-10-25T19:33:49.869720+00:00","text":"","usage_definition":"synthetic logical tokens"}

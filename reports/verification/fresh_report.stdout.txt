@@ -1,0 +1,1 @@
+{"out": "reports\\regenerated", "evaluation": "838dc222294ad8ce0e699b3954562409fcfe6eb13710893ff28e1804f146f96e", "synthetic": true, "summary_rows": 56}

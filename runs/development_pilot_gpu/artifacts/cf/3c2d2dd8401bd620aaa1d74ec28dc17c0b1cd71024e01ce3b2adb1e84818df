@@ -1,0 +1,18 @@
+n, k = map(int, input().split())
+tabs = list(map(int, input().split()))
+
+max_diff = 0
+
+for b in range(n):
+    test_count = 0
+    social_count = 0
+    for i in range(n):
+        c = b + i * k
+        if 1 <= c <= n:
+            if tabs[c-1] == 1:
+                test_count += 1
+            else:
+                social_count += 1
+    max_diff = max(max_diff, abs(test_count - social_count))
+
+print(max_diff)

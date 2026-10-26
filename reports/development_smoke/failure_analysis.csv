@@ -1,0 +1,3 @@
+category,count,unit,denominator,rate,representative_trial
+WRONG_ANSWER,4,test_outcome,6,0.6666666666666666,a74b302fb94e50355343c3c1
+INVALID_COMPLETION,1,generation,2,0.5,a74b302fb94e50355343c3c1

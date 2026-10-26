@@ -1,0 +1,14 @@
+.venv/
+.venv_verify/
+.runtime/
+data/audit_private/
+data/raw_*/
+data/**/audit_private/
+__pycache__/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+*.egg-info/
+data/raw/
+runs/
+dist/

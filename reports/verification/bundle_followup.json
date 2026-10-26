@@ -1,0 +1,29 @@
+{
+  "archive": "rexbench_followup.zip",
+  "sha256": "aa50ab1c181073635eb3d311365796dc15df2383eb492bd1645d07c518c29760",
+  "verified_files": 1182,
+  "extraction_directory": "C:\\Users\\prath\\rexcheck_apkg99ro",
+  "windows_path_note": "Use a short extraction root; nested Desktop extraction exceeded Windows legacy path length.",
+  "extracted_synthetic_seal": "0576ca325dfef62ad4b7480d1532ae610be29b85baeb6239d6be3b81d45aef02",
+  "private_references_excluded": true,
+  "pending_live_plan_source_pins_match": true,
+  "live_inference_calls": 0,
+  "offline": {
+    "tests": 90,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "docker": {
+    "tests": 15,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "live": {
+    "tests": 1,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 1
+  }
+}

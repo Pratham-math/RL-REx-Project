@@ -1,0 +1,34 @@
+# Read input
+n, k = map(int, input().split())
+tabs = list(map(int, input().split()))
+
+# Initialize variables to store the counts of test and social network tabs
+test_tabs = 0
+social_tabs = 0
+
+# Count initial number of test and social network tabs
+for tab in tabs:
+    if tab == 1:
+        test_tabs += 1
+    elif tab == -1:
+        social_tabs += 1
+
+# Initialize the maximum absolute difference
+max_diff = abs(test_tabs - social_tabs)
+
+# Try closing every k-th tab starting from each possible starting point
+for b in range(k):
+    remaining_test_tabs = test_tabs
+    remaining_social_tabs = social_tabs
+    for i in range((n - b) // k + 1):
+        c = b + i * k
+        if c <= n:
+            if tabs[c - 1] == 1:
+                remaining_test_tabs -= 1
+            elif tabs[c - 1] == -1:
+                remaining_social_tabs -= 1
+    # Update the maximum absolute difference
+    max_diff = max(max_diff, abs(remaining_test_tabs - remaining_social_tabs))
+
+# Output the result
+print(max_diff)

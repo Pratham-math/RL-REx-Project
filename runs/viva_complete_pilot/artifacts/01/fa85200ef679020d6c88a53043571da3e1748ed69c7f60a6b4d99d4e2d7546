@@ -1,0 +1,15 @@
+def can_grasshopper_reach_insect(n, k, line):
+    G_index = line.find('G')
+    T_index = line.find('T')
+    
+    if abs(G_index - T_index) % k == 0 and line[G_index] == 'G' and line[T_index] == 'T':
+        return "YES"
+    else:
+        return "NO"
+
+# Read input
+n, k = map(int, input().split())
+line = input().strip()
+
+# Output the result
+print(can_grasshopper_reach_insect(n, k, line))

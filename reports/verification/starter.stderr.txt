@@ -1,0 +1,16 @@
+test_duplicate_calls_charged_and_arm_not_reset (test_project.Tests.test_duplicate_calls_charged_and_arm_not_reset) ... ok
+test_first_full_visible_pass_stops (test_project.Tests.test_first_full_visible_pass_stops) ... ok
+test_no_hidden_feedback_used_for_snapshot_selection (test_project.Tests.test_no_hidden_feedback_used_for_snapshot_selection) ... ok
+test_null_is_uniform_and_has_no_progress_credit (test_project.Tests.test_null_is_uniform_and_has_no_progress_credit) ... ok
+test_original_penalizes_incomplete_progress (test_project.Tests.test_original_penalizes_incomplete_progress) ... ok
+test_paired_task_bootstrap_and_censoring (test_project.Tests.test_paired_task_bootstrap_and_censoring) ... ok
+test_partition_no_duplicates_or_example_inputs_in_hidden (test_project.Tests.test_partition_no_duplicates_or_example_inputs_in_hidden) ... ok
+test_pipeline_keeps_hidden_failures_out_of_search (test_project.Tests.test_pipeline_keeps_hidden_failures_out_of_search) ... ok
+test_progress_credit_and_regression (test_project.Tests.test_progress_credit_and_regression) ... ok
+test_same_one_call_result_across_methods (test_project.Tests.test_same_one_call_result_across_methods) ... ok
+test_zero_eta_gamma_recovers_original (test_project.Tests.test_zero_eta_gamma_recovers_original) ... ok
+
+----------------------------------------------------------------------
+Ran 11 tests in 1.407s
+
+OK

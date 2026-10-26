@@ -1,0 +1,21 @@
+def is_reachable(n, m, horizontal, vertical):
+    # Check if the horizontal streets allow movement from left to right
+    if '<' in horizontal and '>' in horizontal:
+        return "NO"
+    
+    # Check if the vertical streets allow movement from top to bottom
+    if '^' in vertical and 'v' in vertical:
+        return "NO"
+    
+    return "YES"
+
+# Read input
+n, m = map(int, input().split())
+horizontal = input().strip()
+vertical = input().strip()
+
+# Check if the pattern is reachable
+result = is_reachable(n, m, horizontal, vertical)
+
+# Write output
+print(result)

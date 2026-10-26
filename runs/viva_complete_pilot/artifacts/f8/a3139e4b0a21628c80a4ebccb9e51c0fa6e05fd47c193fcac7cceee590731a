@@ -1,0 +1,30 @@
+import sys
+
+def max_abs_difference(n, k, tabs):
+    max_diff = 0
+    for b in range(1, n+1):
+        test_count = 0
+        social_count = 0
+        i = 0
+        while True:
+            c = b + i * k
+            if c > n or c < 1:
+                break
+            if tabs[c-1] == 1:
+                test_count += 1
+            else:
+                social_count += 1
+            i += 1
+        max_diff = max(max_diff, abs(test_count - social_count))
+    return max_diff
+
+# Read input
+input = sys.stdin.read
+data = input().split()
+n = int(data[0])
+k = int(data[1])
+tabs = list(map(int, data[2:]))
+
+# Calculate and print the result
+result = max_abs_difference(n, k, tabs)
+print(result)

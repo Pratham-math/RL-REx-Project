@@ -1,0 +1,13 @@
+# Read input from standard input
+n, k = map(int, input().split())
+line = input().strip()
+
+# Find the positions of the grasshopper and the target
+grasshopper_pos = line.find('G')
+target_pos = line.find('T')
+
+# Check if the grasshopper and the target are not blocked by obstacles
+if line[grasshopper_pos - k] != '#' and line[grasshopper_pos + k] != '#':
+    print("YES")
+else:
+    print("NO")

@@ -1,0 +1,19 @@
+import sys
+
+def can_be_divisible_by_64(binary_string):
+    # Try removing all occurrences of '0' and check if the resulting number is divisible by 64
+    if int(binary_string.replace('0', ''), 2) % 64 == 0:
+        return True
+    # Try removing all occurrences of '1' and check if the resulting number is divisible by 64
+    if int(binary_string.replace('1', ''), 2) % 64 == 0:
+        return True
+    return False
+
+# Read the binary string from standard input
+binary_string = sys.stdin.read().strip()
+
+# Determine if it's possible to make the number divisible by 64
+if can_be_divisible_by_64(binary_string):
+    print("yes")
+else:
+    print("no")

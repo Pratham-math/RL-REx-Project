@@ -1,0 +1,19 @@
+def is_divisible_by_64(s):
+    # Check if the string is already a multiple of 64
+    if int(s, 2) % 64 == 0:
+        return "yes"
+    
+    # Try removing each digit and check if the resulting number is divisible by 64
+    for i in range(len(s)):
+        if s[i] == '0':
+            new_s = s[:i] + s[i+1:]
+            if int(new_s, 2) % 64 == 0:
+                return "yes"
+    
+    return "no"
+
+# Read input from standard input
+s = input().strip()
+
+# Print the result to standard output
+print(is_divisible_by_64(s))
